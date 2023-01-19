@@ -1,13 +1,17 @@
 # Script 2: printing five names that are exactly 8 characters long
 
+#importing the names library
 import names
 
-continueCode = True
-index = 1
+#initializing a counter variable
+counter = 0
 
-while continueCode:
+#once the counter hits 5, stops the loop
+while counter != 5:
+    #pulls a random name
     name = names.get_full_name()
-    
-    if (name.len() == 9):
+
+    #if the name is 8 characters long, then print and increase the counter
+    if (len(name) == 9):
         print(name)
-        index++;
+        counter = counter + 1;

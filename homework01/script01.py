@@ -5,7 +5,7 @@ words = []
 largest5 = []
 
 #store the elements in the words file into the words list
-with open('words', 'r') as infile:
+with open('/usr/share/dict/words', 'r') as infile:
         words = infile.read().splitlines()
 
 #loop 5 times to find 5 words
