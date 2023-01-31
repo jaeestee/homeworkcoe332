@@ -3,6 +3,7 @@
 
 ## Homeworks
 - [homework01](https://github.com/jaeestee/homeworkcoe332/tree/main/homework01)
+- [homework02](https://github.com/jaeestee/homeworkcoe332/tree/main/homework02)
 
 ## Files not included in this repo
 - ``words`` file is located in ``/usr/share/dict/words`` of the **login-coe332** server
