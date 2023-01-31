@@ -17,7 +17,7 @@ Firstly, run ``site_generator.py``:
 ```bash
 $ python3 site_generator.py
 ```
-> Using the ``ls`` command will show the newly created file called ``random_meteorites.json``.
+> Using the ``ls`` command in the terminal, it will show the newly created file called ``random_meteorites.json``.
 
 Next, run ``trip_calculator.py``:
 ```bash
