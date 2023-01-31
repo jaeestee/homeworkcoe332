@@ -1,4 +1,4 @@
-# Homework 2 - Meteorite Trip Generator
+# Homework 2 - Trip Generator for Random Meteorite Landing Sites
 This homework contains a script ``site_generator.py`` and ``trip_calculator.py``. Using these scripts, it creates **5** random meteorites sites and calculates a trip a robot would take while moving along the randomly generated sites.
 
 ***site_generator.py***
