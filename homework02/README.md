@@ -25,7 +25,7 @@ $ python3 trip_calculator.py
 ```
 
 If done properly, there should be an output similar to this:
-```bash
+```
 leg = 1, time to travel = 13.15 hr, time to sample = 3 hr
 leg = 2, time to travel = 6.09 hr, time to sample = 3 hr
 leg = 3, time to travel = 1.55 hr, time to sample = 3 hr
