@@ -1,5 +1,5 @@
 # Homework 2 - Meteorite trip generator
-> This homework contains a script ``site_generator.py`` and ``trip_calculator.py``. Using these scripts, it creates **5** random meteorites sites and calculates a trip a robot would take while moving along the randomly generated sites.
+This homework contains a script ``site_generator.py`` and ``trip_calculator.py``. Using these scripts, it creates **5** random meteorites sites and calculates a trip a robot would take while moving along the randomly generated sites.
 
 ***site_generator.py***
 - This script generates five random meteorite landing sites that contain a site id, latitude, longitude, and composition of the meteorite. Then it assembles the data into a dictionary and writes it into a JSON file called ``random_meteorites.json``.
