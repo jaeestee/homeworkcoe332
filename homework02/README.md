@@ -33,3 +33,4 @@ leg = 5, time to travel = 6.26 hr, time to sample = 2 hr
 ===============================
 number of legs = 5, total time elapsed = 43.13 hr
 ```
+> These results show the travel time between each site, in order, and the time it takes to sample the specific meteorite. Lastly, they show the total number of legs there are in the trip and the total time elapsed (summing the traveling time and the sampling time).
