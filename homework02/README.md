@@ -23,7 +23,7 @@ Next, run ``trip_calculator.py``:
 $ python3 trip_calculator.py
 ```
 
-If done properly, there should be an output similar to this:
+If done properly, there should be an output similar to this (but with different numbers):
 ```
 leg = 1, time to travel = 13.15 hr, time to sample = 3 hr
 leg = 2, time to travel = 6.09 hr, time to sample = 3 hr
