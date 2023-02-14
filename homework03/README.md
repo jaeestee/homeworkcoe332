@@ -1,8 +1,8 @@
 # Homework 3 - Analyzing the Turbidity of Water and Testing it
-This homework contains the scripts ``analyze_water.py`` and ``test_analyze_water.py``. The first analyzes the turbidity of water, while the second is a unit tester for the functions in ``analyze_water.py``.
+This homework contains the scripts ``analyze_water.py`` and ``test_analyze_water.py``. The first analyzes the turbidity of water while the second is a unit tester for the functions in ``analyze_water.py``.
 
 ***analyze_water.py***
-- This script calculates the turbidity of the most recent five data points by multiplying the calibration constant and the detector current from the data. It also calculates the minimum decay time needed for the turbidity to fall below the safe turbidity threshold.
+- This script calculates the turbidity of the most recent five data points by multiplying the calibration constant and the detector current from the data and prints whether it is above or below the safe turbidity threshold. It also calculates the minimum decay time needed for the turbidity to fall below the safe turbidity threshold.
 > The ``calculate_turbidity`` function calculates the turbidity while the ``calculate_decay_time`` function calculates the minimum time to fall below the safe threshold.
 
 ***test_analyze_water.py***
