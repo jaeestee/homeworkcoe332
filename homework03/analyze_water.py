@@ -28,7 +28,7 @@ def calculate_turbidity(data: list, calibrationKey: str, detectorKey: str) -> fl
         turbidityTotal = turbidityTotal + calibrationConstant * detectorCurrent
 
     #calculates the average
-    turbidity = turbidityTotal / i
+    turbidity = turbidityTotal / 5
 
     #returns the turbidity average
     return turbidity
