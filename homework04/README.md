@@ -27,7 +27,7 @@ Press CTRL+C to quit
 127.0.0.1 - - [21/Feb/2023 08:03:08] "GET / HTTP/1.1" 200 -
 ```
 Now the app is running!
-> IMPORTANT: Have this running on a separate window and keep it running while sending queries!!!
+> **IMPORTANT: Have this running on a separate window and keep it running while sending queries!!!**
 
 # Queries To Use While The App is Running:
 To print the entire data set, run this command:
