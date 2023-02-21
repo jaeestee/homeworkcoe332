@@ -58,7 +58,7 @@ If done properly (**WITH THE APP RUNNING**), the end of the output should look s
 ```
 > This will print out the entire data set, but as long as you see the metadata section, it printed everything properly.
 
-To print out a list of all Epochs in the data set, run this command:
+## To print out a list of all Epochs in the data set, run this command:
 ```bash
 $ curl localhost:5000/epochs
 ```
@@ -93,7 +93,7 @@ If done properly, the end of the output should look similar to this:
 ]
 ```
 
-To print a specific Epoch, run this command:
+## To print a specific Epoch, run this command:
 ```bash
 $ curl localhost:5000/epochs/epochKey
 ```
@@ -132,7 +132,7 @@ If done properly, the output should look similar to this:
 }
 ```
 
-Lastly, to print the speed of a specific Epoch, run this command:
+## Lastly, to print the speed of a specific Epoch, run this command:
 ```bash
 $ curl localhost:5000/epochs/2023-063T12:00:00.000Z/speed
 ```
