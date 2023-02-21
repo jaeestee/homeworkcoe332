@@ -1,5 +1,5 @@
 # Homework 4 - International Space Station Trajectory Data
-This homework contains the script ``iss_tracker.py``. This script is a flask application that is used to return data from the iss trajectory data.
+This homework contains the script ``iss_tracker.py``. This script is a flask application that is used to return data from the iss trajectory data. The data returned is explained in the sections below.
 
 ***iss_tracker.py***
 - This flask app contains functions that are called when queries are sent to the running app, therefore returning values that were requested. The functions are ``data()``, ``epoch_data()``, ``specific_epoch_data()``, and ``calculate_epoch_speed()``.
