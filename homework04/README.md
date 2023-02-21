@@ -30,7 +30,7 @@ Now the app is running!
 > **IMPORTANT: Have this running on a separate window and keep it running while sending queries!!!**
 
 # Queries To Use While The App is Running:
-To print the entire data set, run this command:
+## To print the entire data set, run this command:
 ```bash
 $ curl localhost:5000/
 ```
