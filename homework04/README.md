@@ -140,7 +140,7 @@ If done properly, the output should look similar to this:
 }
 ```
 
-## Lastly, to print the speed of a specific Epoch, run this command:
+## To print the speed of a specific Epoch, run this command:
 ```bash
 $ curl localhost:5000/epochs/2023-063T12:00:00.000Z/speed
 ```
