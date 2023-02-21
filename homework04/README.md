@@ -100,3 +100,42 @@ $ curl localhost:5000/epochs/epochKey
 > ```bash
 > $ curl localhost:5000/epochs/2023-063T12:00:00.000Z
 > ```
+If done properly, the output should look similar to this:
+```
+{
+  "EPOCH": "2023-063T12:00:00.000Z",
+  "X": {
+    "#text": "2820.04422055639",
+    "@units": "km"
+  },
+  "X_DOT": {
+    "#text": "5.0375825820999403",
+    "@units": "km/s"
+  },
+  "Y": {
+    "#text": "-5957.89709645725",
+    "@units": "km"
+  },
+  "Y_DOT": {
+    "#text": "0.78494316057540003",
+    "@units": "km/s"
+  },
+  "Z": {
+    "#text": "1652.0698653803699",
+    "@units": "km"
+  },
+  "Z_DOT": {
+    "#text": "-5.7191913150960803",
+    "@units": "km/s"
+  }
+}
+```
+
+Lastly, to print the speed of a specific Epoch, run this command:
+```bash
+$ curl localhost:5000/epochs/2023-063T12:00:00.000Z/speed
+```
+If done properly, the output should look similar to this:
+```
+Speed: 7.661757196327827 km/s
+```
