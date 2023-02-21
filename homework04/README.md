@@ -56,7 +56,7 @@ If done properly (**WITH THE APP RUNNING**), the end of the output should look s
   }
 }
 ```
-> This will print out the entire data set, therefore as long as you see the metadata section, it printed everything properly.
+> This will print out the entire data set, but as long as you see the metadata section, it printed everything properly.
 
 To print out a list of all Epochs in the data set, run this command:
 ```bash
