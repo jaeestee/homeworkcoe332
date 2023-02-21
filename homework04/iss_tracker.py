@@ -4,7 +4,7 @@ import requests, xmltodict, math
 app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
-def get_data() -> dict:
+def data() -> dict:
     """
     This function imports the data into the data variable directly from the website so that it can always
     use the most updated data set. Then it returns the said data in the form of a dictionary.
@@ -20,7 +20,7 @@ def get_data() -> dict:
     return data
 
 @app.route('/epochs', methods=['GET'])
-def entire_epoch_data() -> list:
+def epoch_data() -> list:
     """
     This function calls the get_data() function to retrieve the entire data set and returns the listOfEpochs
     variable.
