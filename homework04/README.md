@@ -2,7 +2,8 @@
 This homework contains the script ``iss_tracker.py``. This script is a flask application that is used to return data from the iss trajectory data.
 
 ***iss_tracker.py***
-- 
+- This flask app contains functions that are called when queries are sent to the running app, therefore returning values that were requested. The functions are ``data()``, ``epoch_data()``, ``specific_epoch_data()``, and ``calculate_epoch_speed()``.
+> The functions correspond to the queries down below, respectively.
 
 # Running the App
 To run the app, run this command:
