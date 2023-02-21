@@ -77,10 +77,13 @@ def calculate_epoch_speed(epoch: str) -> dict:
     yDot = float(specificEpoch['Y_DOT']['#text'])
     zDot = float(specificEpoch['Z_DOT']['#text'])
 
+    #the units for the vector
+    units = specificEpoch['X_DOT']['@units']
+    
     #calculates the speed using the magnitude of a vector formula
     speed = math.sqrt(xDot**2 + yDot**2 + zDot**2)
 
-    return f'Speed: {str(speed)}\n'
+    return f'Speed: {str(speed)} {units}\n'
     
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
