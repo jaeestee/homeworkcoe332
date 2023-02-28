@@ -1,10 +1,19 @@
 # Navigation:
 - [Homework 5 (Description)](https://github.com/jaeestee/homeworkcoe332/tree/main/homework05#homework-5---Containing-the-Advanced-ISS-Trajectory)
+
+- [Image Handling](https://github.com/jaeestee/homeworkcoe332/edit/main/homework05/README.md#image-handling)
+  - [Pulling the Image](https://github.com/jaeestee/homeworkcoe332/edit/main/homework05/README.md#pulling-the-image-jaeesteeiss_tracker-from-docker-hub)
+  - [Running the Image](https://github.com/jaeestee/homeworkcoe332/edit/main/homework05/README.md#running-the-image)
+  - [Building a New Image](https://github.com/jaeestee/homeworkcoe332/edit/main/homework05/README.md#building-a-new-image)
+  
 - [Queries To Use While The App is Running:](https://github.com/jaeestee/homeworkcoe332/tree/main/homework05#queries-to-use-while-the-app-is-running)
   - [To print the entire data set](https://github.com/jaeestee/homeworkcoe332/tree/main/homework05#to-print-the-entire-data-set-run-this-command)
   - [To print out a list of all Epochs in the data set](https://github.com/jaeestee/homeworkcoe332/tree/main/homework05#to-print-out-a-list-of-all-epochs-in-the-data-set-run-this-command)
   - [To print a specific Epoch](https://github.com/jaeestee/homeworkcoe332/tree/main/homework05#to-print-a-specific-epoch-run-this-command)
   - [To print the speed of a specific Epoch](https://github.com/jaeestee/homeworkcoe332/tree/main/homework05#to-print-the-speed-of-a-specific-epoch-run-this-command)
+  
+- [Describing the ISS Data](https://github.com/jaeestee/homeworkcoe332/edit/main/homework05/README.md#describing-the-iss-data)
+  
 # Homework 5 - Containing the Advanced ISS Trajectory
 This homework contains the script ``iss_tracker.py``. This script is a flask application that is used to return data from the iss trajectory data. The data returned is explained in the sections below.
 
@@ -12,7 +21,8 @@ This homework contains the script ``iss_tracker.py``. This script is a flask app
 - This flask app contains functions that are called when queries are sent to the running app, therefore returning values that were requested. The functions are ``data()``, ``epoch_data()``, ``specific_epoch_data()``, and ``calculate_epoch_speed()``.
 > The functions correspond to the queries down below, respectively.
 
-# Pulling the image ```jaeestee/iss_tracker``` from Docker Hub:
+# Image Handling
+## Pulling the image ```jaeestee/iss_tracker``` from Docker Hub:
 To pull the existing image, run this command:
 ```bash
 $ docker pull jaeestee/iss_tracker:hw05
@@ -27,7 +37,7 @@ $ docker images
 > jaeestee/iss_tracker   hw05      d8276d24fa21   2 hours ago     897MB
 > ```
 
-# Running the image:
+## Running the image:
 To start running the containerized Flask app, run this command:
 ```bash
 docker run -it --rm -p 5000:5000 jaeestee/iss_tracker:hw05
@@ -47,6 +57,38 @@ Press CTRL+C to quit
 ```
 Now the app is running!
 > **IMPORTANT: Have this running on a separate window and keep it running while sending queries!!!**
+
+## Building a New Image:
+To build a new image from the **Dockerfile** present in this directory, run this command:
+```
+$ docker build -t <dockerhubusername>/iss_tracker:<version> .
+```
+> **IMPORTANT: Make sure to be in the same directory as the ``Dockerfile`` and DO NOT FORGET THE "." at the very end of this command!!!**
+
+If done properly, the output should look similar to this:
+```
+Sending build context to Docker daemon  10.24kB
+Step 1/6 : FROM python:3.8.10
+ ---> a369814a9797
+Step 2/6 : RUN pip install Flask==2.2.2
+ ---> Using cache
+ ---> bbf69ba6f74f
+Step 3/6 : RUN pip install requests==2.22.0
+ ---> Using cache
+ ---> 9cccc52676f6
+Step 4/6 : RUN pip install xmltodict==0.13.0
+ ---> Using cache
+ ---> 3813629386c4
+Step 5/6 : COPY iss_tracker.py /iss_tracker.py
+ ---> Using cache
+ ---> 071d505247d6
+Step 6/6 : CMD ["python", "iss_tracker.py"]
+ ---> Using cache
+ ---> d8276d24fa21
+Successfully built d8276d24fa21
+Successfully tagged jaeestee/iss_tracker:test
+```
+Now you have successfully created your own image!
 
 # Queries To Use While The App is Running:
 ## To print the entire data set, run this command:
@@ -111,6 +153,11 @@ If done properly, the end of the output should look similar to this:
   }
 ]
 ```
+> It is also possible to use the query parameters ``limit`` and ``offset``:
+> ```
+> $ curl localhost:5000/epochs?limit=<int>'&'offset=<int>
+> ```
+> where limit prints out a specific number of Epochs and offset changes the starting point.
 
 ## To print a specific Epoch, run this command:
 ```bash
@@ -159,3 +206,7 @@ If done properly, the output should look similar to this:
 ```
 Speed: 7.661757196327827 km/s
 ```
+
+# Describing the ISS Data:
+An Epoch is simply a point in time that the ISS is at. It is represented in 3D cartesian coordinates (X, Y, and Z components), as well the corresponding vector components (X_DOT, Y_DOT, and Z_DOT). The units of the coordinates are kilometers, while the vector components are in kilometers per second. Lastly, the Epoch Key (example: 2023-063T12:00:00.000Z) represents the year, date, and time, in that exact order.
+> From the [NASA ISS Trajectory Data Website](https://spotthestation.nasa.gov/trajectory_data.cfm)
