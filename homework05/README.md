@@ -6,7 +6,7 @@
   - [To print out a list of all Epochs in the data set](https://github.com/jaeestee/homeworkcoe332/tree/main/homework04#to-print-out-a-list-of-all-epochs-in-the-data-set-run-this-command)
   - [To print a specific Epoch](https://github.com/jaeestee/homeworkcoe332/tree/main/homework04#to-print-a-specific-epoch-run-this-command)
   - [To print the speed of a specific Epoch](https://github.com/jaeestee/homeworkcoe332/tree/main/homework04#to-print-the-speed-of-a-specific-epoch-run-this-command)
-# Homework 4 - Containing the Advanced ISS Trajectory
+# Homework 5 - Containing the Advanced ISS Trajectory
 This homework contains the script ``iss_tracker.py``. This script is a flask application that is used to return data from the iss trajectory data. The data returned is explained in the sections below.
 
 ***iss_tracker.py***
