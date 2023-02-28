@@ -1,10 +1,10 @@
 # Navigation:
 - [Homework 5 (Description)](https://github.com/jaeestee/homeworkcoe332/tree/main/homework05#homework-5---Containing-the-Advanced-ISS-Trajectory)
 
-- [Image Handling](https://github.com/jaeestee/homeworkcoe332/edit/main/homework05/README.md#image-handling)
-  - [Pulling the Image](https://github.com/jaeestee/homeworkcoe332/edit/main/homework05/README.md#pulling-the-image-jaeesteeiss_tracker-from-docker-hub)
-  - [Running the Image](https://github.com/jaeestee/homeworkcoe332/edit/main/homework05/README.md#running-the-image)
-  - [Building a New Image](https://github.com/jaeestee/homeworkcoe332/edit/main/homework05/README.md#building-a-new-image)
+- [Image Handling](https://github.com/jaeestee/homeworkcoe332/main/homework05/README.md#image-handling)
+  - [Pulling the Image](https://github.com/jaeestee/homeworkcoe332/main/homework05/README.md#pulling-the-image-jaeesteeiss_tracker-from-docker-hub)
+  - [Running the Image](https://github.com/jaeestee/homeworkcoe332/main/homework05/README.md#running-the-image)
+  - [Building a New Image](https://github.com/jaeestee/homeworkcoe332/main/homework05/README.md#building-a-new-image)
   
 - [Queries To Use While The App is Running:](https://github.com/jaeestee/homeworkcoe332/tree/main/homework05#queries-to-use-while-the-app-is-running)
   - [To print the entire data set](https://github.com/jaeestee/homeworkcoe332/tree/main/homework05#to-print-the-entire-data-set-run-this-command)
@@ -12,7 +12,7 @@
   - [To print a specific Epoch](https://github.com/jaeestee/homeworkcoe332/tree/main/homework05#to-print-a-specific-epoch-run-this-command)
   - [To print the speed of a specific Epoch](https://github.com/jaeestee/homeworkcoe332/tree/main/homework05#to-print-the-speed-of-a-specific-epoch-run-this-command)
   
-- [Describing the ISS Data](https://github.com/jaeestee/homeworkcoe332/edit/main/homework05/README.md#describing-the-iss-data)
+- [Describing the ISS Data](https://github.com/jaeestee/homeworkcoe332/blob/main/homework05/README.md#describing-the-iss-data)
   
 # Homework 5 - Containing the Advanced ISS Trajectory
 This homework contains the script ``iss_tracker.py``. This script is a flask application that is used to return data from the iss trajectory data. The data returned is explained in the sections below.
