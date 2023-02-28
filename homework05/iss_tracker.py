@@ -3,6 +3,43 @@ import requests, xmltodict, math
 
 app = Flask(__name__)
 
+@app.route('/delete-data', methods=['DELETE'])
+def delete_data() -> str:
+    """
+    This function deletes the data and replaces the data with a blank dictionary.
+
+    Returns:
+        message (str): Message saying that the data was deleted.
+    """
+
+    #making DATA a global variable
+    global DATA
+
+    #simply setting DATA equal to nothing so that it "deletes" the data
+    DATA = {}
+
+    message = 'Successfully deleted all the data from the dictionary!\n'
+    return message
+
+@app.route('/post-data', methods=['POST'])
+def post_data() -> str:
+    """
+    This function reloads the DATA dictionary object with the data from the web.
+
+    Returns:
+        message (str): Message saying that the data was successfully reloaded.
+    """
+
+    #making DATA a global variable
+    global DATA
+    
+    #stores the data from the get request into the data variable and converts it into a dictionary
+    DATA = requests.get(url='https://nasa-public-data.s3.amazonaws.com/iss-coords/current/ISS_OEM/ISS.OEM_J2K_EPH.xml')
+    DATA = xmltodict.parse(DATA.text)
+
+    message = 'Successfully reloaded the dictionary with the data from the web!\n'
+    return message
+    
 @app.route('/', methods=['GET'])
 def data() -> dict:
     """
@@ -13,11 +50,13 @@ def data() -> dict:
         data (dict): The entire iss data.
     """
 
-    #stores the data from the get request into the data variable and converts it into a dictionary
-    data = requests.get(url='https://nasa-public-data.s3.amazonaws.com/iss-coords/current/ISS_OEM/ISS.OEM_J2K_EPH.xml')
-    data = xmltodict.parse(data.text)
+    #try-except block that returns if the data doesn't exist and an error occurs because of it
+    try:
+        DATA
+    except NameError:
+        return 'The data set does not exist yet!\n'
 
-    return data
+    return DATA
 
 @app.route('/epochs', methods=['GET'])
 def epoch_data() -> list:
@@ -31,8 +70,14 @@ def epoch_data() -> list:
         limit parameters.
     """
 
-    #stores the entire epoch data by navigating through the entire data dictionary
-    listOfEpochs = data()['ndm']['oem']['body']['segment']['data']['stateVector']
+    #try-except block that makes sure it returns a message if the data is empty or doesn't exist
+    try:
+        #stores the entire epoch data by navigating through the entire data dictionary
+        listOfEpochs = data()['ndm']['oem']['body']['segment']['data']['stateVector']
+    except TypeError:
+        return 'The data set does not exist yet!\n'
+    except KeyError:
+        return 'The data is empty!\n'
 
     #try and except blocks for the limit and offset variables so that it can only be an integer
     try:
@@ -66,7 +111,13 @@ def specific_epoch_data(epoch: str) -> dict:
     """
 
     #stores the list of epochs using the pre-existing function
-    listOfEpochs = entire_epoch_data()
+    listOfEpochs = epoch_data()
+
+    #try-except block to make sure the data has information
+    try:
+        listOfEpochs[0]['EPOCH']
+    except TypeError:
+        return 'The data seems to be empty or does not exist...\n'
 
     #shorts through the list to match the epoch key and returns the data for it
     for i in range(len(listOfEpochs)):
@@ -91,6 +142,12 @@ def calculate_epoch_speed(epoch: str) -> dict:
     #stores the specific epoch using the pre-existing function
     specificEpoch = specific_epoch_data(epoch)
 
+    #try-except block to make sure the data has information
+    try:
+        specificEpoch['X_DOT']['#text']
+    except TypeError:
+        return 'Could not calculate the speed of the epoch for the given key.\n'
+        
     #stores the X_DOT, Y_DOT, and Z_DOT for the specific epoch into corresponding variables and converts them to float
     xDot = float(specificEpoch['X_DOT']['#text'])
     yDot = float(specificEpoch['Y_DOT']['#text'])
@@ -135,8 +192,6 @@ The different query parameters (only works for the "/epochs" route):
 '''
     
     return helpOutput
-
-
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
