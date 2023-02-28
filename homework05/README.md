@@ -1,16 +1,16 @@
 # Navigation:
-- [Homework 5 (Description)](https://github.com/jaeestee/homeworkcoe332/tree/main/homework05#homework-5---Containing-the-Advanced-ISS-Trajectory)
+- [Homework 5 (Description)](https://github.com/jaeestee/homeworkcoe332/blob/main/homework05/README.md#homework-5---containing-the-advanced-iss-trajectory)
 
-- [Image Handling](https://github.com/jaeestee/homeworkcoe332/main/homework05/README.md#image-handling)
-  - [Pulling the Image](https://github.com/jaeestee/homeworkcoe332/main/homework05/README.md#pulling-the-image-jaeesteeiss_tracker-from-docker-hub)
-  - [Running the Image](https://github.com/jaeestee/homeworkcoe332/main/homework05/README.md#running-the-image)
-  - [Building a New Image](https://github.com/jaeestee/homeworkcoe332/main/homework05/README.md#building-a-new-image)
+- [Image Handling](https://github.com/jaeestee/homeworkcoe332/blob/main/homework05/README.md#image-handling)
+  - [Pulling the Image](https://github.com/jaeestee/homeworkcoe332/blob/main/homework05/README.md#pulling-the-image-jaeesteeiss_tracker-from-docker-hub)
+  - [Running the Image](https://github.com/jaeestee/homeworkcoe332/blob/main/homework05/README.md#running-the-image)
+  - [Building a New Image](https://github.com/jaeestee/homeworkcoe332/blob/main/homework05/README.md#building-a-new-image)
   
-- [Queries To Use While The App is Running:](https://github.com/jaeestee/homeworkcoe332/tree/main/homework05#queries-to-use-while-the-app-is-running)
-  - [To print the entire data set](https://github.com/jaeestee/homeworkcoe332/tree/main/homework05#to-print-the-entire-data-set-run-this-command)
-  - [To print out a list of all Epochs in the data set](https://github.com/jaeestee/homeworkcoe332/tree/main/homework05#to-print-out-a-list-of-all-epochs-in-the-data-set-run-this-command)
-  - [To print a specific Epoch](https://github.com/jaeestee/homeworkcoe332/tree/main/homework05#to-print-a-specific-epoch-run-this-command)
-  - [To print the speed of a specific Epoch](https://github.com/jaeestee/homeworkcoe332/tree/main/homework05#to-print-the-speed-of-a-specific-epoch-run-this-command)
+- [Queries To Use While The App is Running:](https://github.com/jaeestee/homeworkcoe332/blob/main/homework05/README.md#queries-to-use-while-the-app-is-running)
+  - [To print the entire data set](https://github.com/jaeestee/homeworkcoe332/blob/main/homework05/README.md#to-print-the-entire-data-set-run-this-command)
+  - [To print out a list of all Epochs in the data set](https://github.com/jaeestee/homeworkcoe332/blob/main/homework05/README.md#to-print-out-a-list-of-all-epochs-in-the-data-set-run-this-command)
+  - [To print a specific Epoch](https://github.com/jaeestee/homeworkcoe332/blob/main/homework05/README.md#to-print-a-specific-epoch-run-this-command)
+  - [To print the speed of a specific Epoch](https://github.com/jaeestee/homeworkcoe332/blob/main/homework05/README.md#to-print-the-speed-of-a-specific-epoch-run-this-command)
   
 - [Describing the ISS Data](https://github.com/jaeestee/homeworkcoe332/blob/main/homework05/README.md#describing-the-iss-data)
   
