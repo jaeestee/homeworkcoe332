@@ -30,7 +30,7 @@ def epoch_data() -> list:
     """
 
     #stores the entire epoch data by navigating through the entire data dictionary
-    listOfEpochs = get_data()['ndm']['oem']['body']['segment']['data']['stateVector']
+    listOfEpochs = data()['ndm']['oem']['body']['segment']['data']['stateVector']
 
     return listOfEpochs
 
