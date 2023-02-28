@@ -12,26 +12,38 @@ This homework contains the script ``iss_tracker.py``. This script is a flask app
 - This flask app contains functions that are called when queries are sent to the running app, therefore returning values that were requested. The functions are ``data()``, ``epoch_data()``, ``specific_epoch_data()``, and ``calculate_epoch_speed()``.
 > The functions correspond to the queries down below, respectively.
 
-# Running the App
-To run the app, run this command:
+# Pulling the image ```jaeestee/iss_tracker``` from Docker Hub:
+To pull the existing image, run this command:
 ```bash
-$ flask --app iss_tracker --debug run
+$ docker pull jaeestee/iss_tracker:hw05
+```
+If done properly, ``jaeestee/iss_tracker`` should show up with the tag ``hw05`` when running this command:
+```bash
+$ docker images
+```
+> The output should look similar to this:
+> ```
+> REPOSITORY             TAG       IMAGE ID       CREATED         SIZE
+> jaeestee/iss_tracker   hw05      d8276d24fa21   2 hours ago     897MB
+> ```
+
+# Running the image:
+To start running the containerized Flask app, run this command:
+```bash
+docker run -it --rm -p 5000:5000 jaeestee/iss_tracker:hw05
 ```
 If done properly, the output should look similar to this:
 ```
  * Serving Flask app 'iss_tracker'
  * Debug mode: on
 WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.2:5000
 Press CTRL+C to quit
  * Restarting with stat
  * Debugger is active!
- * Debugger PIN: 138-016-316
-127.0.0.1 - - [21/Feb/2023 08:02:45] "GET /epochs/2023-048T12:04:00.000Z/speed HTTP/1.1" 200 -
-127.0.0.1 - - [21/Feb/2023 08:02:53] "GET /epochs/2023-048T12:00:00.000Z/speed HTTP/1.1" 200 -
-127.0.0.1 - - [21/Feb/2023 08:02:57] "GET /epochs/2023-048T12:00:00.000Z HTTP/1.1" 200 -
-127.0.0.1 - - [21/Feb/2023 08:03:02] "GET /epochs HTTP/1.1" 200 -
-127.0.0.1 - - [21/Feb/2023 08:03:08] "GET / HTTP/1.1" 200 -
+ * Debugger PIN: 953-963-822
 ```
 Now the app is running!
 > **IMPORTANT: Have this running on a separate window and keep it running while sending queries!!!**
