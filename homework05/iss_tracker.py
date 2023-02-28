@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 import requests, xmltodict, math
 
 app = Flask(__name__)
@@ -23,16 +23,35 @@ def data() -> dict:
 def epoch_data() -> list:
     """
     This function calls the get_data() function to retrieve the entire data set and returns the listOfEpochs
-    variable.
+    variable. It can take in query parameters of offset and limit which will cause the data to start at a
+    different point and limit the amount of data returned.
 
     Returns:
-        listOfEpochs (list): The entire list of Epochs from the iss data.
+        results (list): The results from the entire list of Epochs from the iss data considering the offset and
+        limit parameters.
     """
 
     #stores the entire epoch data by navigating through the entire data dictionary
     listOfEpochs = data()['ndm']['oem']['body']['segment']['data']['stateVector']
 
-    return listOfEpochs
+    #try and except blocks for the limit and offset variables so that it can only be an integer
+    try:
+        limit = int(request.args.get('limit', len(listOfEpochs)))
+    except ValueError:
+        return 'ERROR: Please send an integer for the limit!\n', 400
+    try:
+        offset = int(request.args.get('offset', 0))
+    except ValueError:
+        return 'ERROR: Please send an integer for the offset!\n', 400
+
+    #initializing a new blank list to store the "new" data
+    results = []
+
+    #for loop that stores the requested Epoch data
+    for i in range(limit):
+        results.append(listOfEpochs[i+offset])
+    
+    return results
 
 @app.route('/epochs/<string:epoch>', methods=['GET'])
 def specific_epoch_data(epoch: str) -> dict:
@@ -84,6 +103,40 @@ def calculate_epoch_speed(epoch: str) -> dict:
     speed = math.sqrt(xDot**2 + yDot**2 + zDot**2)
 
     return f'Speed: {str(speed)} {units}\n'
+
+@app.route('/help', methods=['GET'])
+def help() -> str:
+    """
+    This function returns a human readable string that explains all the available
+    routes in this API.
+
+    Returns:
+       helpOutput (str): The string that explains the routes.
+    """
+
+    helpOutput = '''usage: curl localhost:5000[<route>][?<query parameter>]\n
+The different possible routes:
+    /                                   Returns the entire data set
+    /epochs                             Returns the list of all Epochs in the data set
+    /epochs/<epoch>                     Returns the state vectors for a specific Epoch from the data set
+    /epochs/<epoch>/speed               Returns the instantaneous speed for a specific Epoch in the data set
+    /help                               Returns the help text taht describes each route
+    /delete-data                        Deletes all the data from the dictionary
+    /post-data                          Reloads the dictionary with data from the website
+
+The different query parameters (only works for the "/epochs" route):
+    limit=<int>                         Returns a specific integer amount of Epochs from the data set
+    offset=<int>                        Returns the entire data set starting offset by a certain integer amount
+    limit=<int>'&'offset=<int>          Combining the limit and offset query parameters
+
+    example:
+    /epochs?limit=15'&'offset=3         Returns the 15 Epochs from the data set offset by 3
+
+'''
     
+    return helpOutput
+
+
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
