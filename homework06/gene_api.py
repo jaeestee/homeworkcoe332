@@ -24,7 +24,8 @@ def delete_data() -> str:
 @app.route('/data', methods=['POST'])
 def post_data() -> str:
     """
-    This function reloads the DATA dictionary object with the data from the web.
+    This function adds the DATA dictionary object with the data from the web and returns
+    a success message.
 
     Returns:
         message (str): Message saying that the data was successfully reloaded.
@@ -43,11 +44,11 @@ def post_data() -> str:
 @app.route('/data', methods=['GET'])
 def data() -> dict:
     """
-    This function imports the data into the data variable directly from the website so that it can always
-    use the most updated data set. Then it returns the said data in the form of a dictionary.
+    This function returns the data, but only if it exists or is empty. Otherwise
+    it will return a message saying that the data does not exist.
 
     Returns:
-        data (dict): The entire iss data.
+        data (dict): The entire gene data.
     """
 
     #try-except block that returns if the data doesn't exist and an error occurs because of it
