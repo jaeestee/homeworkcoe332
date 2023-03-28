@@ -13,7 +13,7 @@
 - [Describing the Gene Data](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#describing-the-gene-data)
   
 # The Data in the Genes
-This homework contains the script ``gene_api.py``. This script is a flask application that is used to return data from the Human Genome Organization (HUGO). The data returned is explained in the sections below.
+This homework contains the script ``gene_api.py``. This script is a flask and redis application that is used to return data from the Human Genome Organization (HUGO). The data returned is explained in the sections below.
 
 ***gene_api.py***
 - This flask app contains functions that are called when queries are sent to the running app, therefore returning values that were requested. The functions are:
