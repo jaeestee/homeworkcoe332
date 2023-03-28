@@ -4,7 +4,7 @@
   - [Pulling the Image](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#running-the-image)
   - [Running the Image](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#running-the-image)
   - [Building a New Image](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#building-a-new-image)
-- [Queries to Use](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#queries-to-use-with-the-app-running-on-a-separate-tab)
+- [Queries to Use](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#queries-to-use)
   - [Load/Reload the Data](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#to-loadreload-the-data-run-this-command)
   - [Delete the Data](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#to-delete-the-data-run-this-command)
   - [Print the Entire Data](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#to-print-the-entire-data-set-whether-it-exists-or-is-empty-run-this-command)
@@ -41,29 +41,45 @@ $ docker images
 ## Running the image:
 To start running the containerized Flask app, run this command:
 ```bash
-docker-compose up -d
+$ docker-compose up -d
 ```
 > Remember that the docker-compose.yml file must exist in the same folder for this to work!
 If done properly, the output should look similar to this:
 ```
-Successfully built 35ead5be0a90
-Successfully tagged jaeestee/gene_api:latest
-WARNING: Image for service flask-app was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.
+Creating network "homework06_default" with the default driver
+Creating homework06_redis-db_1 ... done
 Creating homework06_flask-app_1 ... done
-Attaching to homework06_flask-app_1
-flask-app_1  |  * Serving Flask app 'gene_api'
-flask-app_1  |  * Debug mode: on
-flask-app_1  | WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
-flask-app_1  |  * Running on all addresses (0.0.0.0)
-flask-app_1  |  * Running on http://127.0.0.1:5000
-flask-app_1  |  * Running on http://172.20.0.2:5000
-flask-app_1  | Press CTRL+C to quit
-flask-app_1  |  * Restarting with stat
-flask-app_1  |  * Debugger is active!
-flask-app_1  |  * Debugger PIN: 436-748-674
 ```
 Now the app is running!
-> **IMPORTANT: Have this running on a separate window and keep it running while sending queries!!!**
+> **IMPORTANT: This does not have to be running on a separate tab since it is running in the background using the ``-d`` command!!!**
+
+To check that the application is running, run this command:
+```bash
+$ docker ps
+```
+If the application is running properly, the output should look similar to this:
+```
+CONTAINER ID   IMAGE               COMMAND                  CREATED         STATUS        PORTS                                       NAMES
+8a314bf73084   jaeestee/gene_api   "python gene_api.py"     2 seconds ago   Up 1 second   0.0.0.0:5000->5000/tcp, :::5000->5000/tcp   homework06_flask-app_1
+de1d39e3cab4   redis:7             "docker-entrypoint.s…"   2 seconds ago   Up 1 second   0.0.0.0:6379->6379/tcp, :::6379->6379/tcp   homework06_redis-db_1
+```
+> If not, the output should look similar to this:
+> ```
+> CONTAINER ID   IMAGE               COMMAND                  CREATED         STATUS        PORTS                                       NAMES
+> ```
+
+To stop the application from running in the background, run this command:
+```bash
+docker-compose down
+```
+If done properly, the output should look similar to this:
+```
+Stopping homework06_flask-app_1 ... done
+Stopping homework06_redis-db_1  ... done
+Removing homework06_flask-app_1 ... done
+Removing homework06_redis-db_1  ... done
+Removing network homework06_default
+```
 
 > Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation)
 ## Building a New Image:
@@ -99,7 +115,7 @@ Successfully tagged jaeestee/gene_api:latest
 Now you have successfully created your own image!
 
 > Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation)
-# Queries To Use (**WITH THE APP RUNNING ON A SEPARATE TAB**):
+# Queries To Use:
 ## To load/reload the data, run this command:
 ```bash
 $ curl localhost:5000/data -X POST
