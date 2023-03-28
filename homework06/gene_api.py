@@ -1,7 +1,9 @@
 from flask import Flask, request
-import requests
+import requests, redis, json
 
 app = Flask(__name__)
+
+rd = redis.Redis(host='redis-db', port=6379, db=0, decode_responses=True)
 
 @app.route('/data', methods=['DELETE'])
 def delete_data() -> str:
@@ -13,10 +15,10 @@ def delete_data() -> str:
     """
 
     #making DATA a global variable
-    global DATA
+    #global DATA
 
     #simply setting DATA equal to nothing so that it "deletes" the data
-    DATA = {}
+    rd.flushdb()
 
     message = 'Successfully deleted all the data from the dictionary!\n'
     return message
@@ -32,11 +34,13 @@ def post_data() -> str:
     """
 
     #making DATA a global variable
-    global DATA
+    #global DATA
     
     #stores the data from the get request into the data variable and converts it into a dictionary
-    DATA = requests.get(url='https://ftp.ebi.ac.uk/pub/databases/genenames/hgnc/json/hgnc_complete_set.json')
-    DATA = DATA.json()
+    data = requests.get(url='https://ftp.ebi.ac.uk/pub/databases/genenames/hgnc/json/hgnc_complete_set.json')
+    data = data.json()
+
+    rd.set('data', json.dumps(data))
 
     message = 'Successfully reloaded the dictionary with the data from the web!\n'
     return message
@@ -44,20 +48,22 @@ def post_data() -> str:
 @app.route('/data', methods=['GET'])
 def data() -> dict:
     """
-    This function returns the data, but only if it exists or is empty. Otherwise
-    it will return a message saying that the data does not exist.
+    This function returns the data from Redis, but only if it exists or is empty.
+    Otherwise it will return a message saying that the data does not exist.
 
     Returns:
-        data (dict): The entire gene data.
+        redisData (dict): The entire gene data.
     """
 
     #try-except block that returns if the data doesn't exist and an error occurs because of it
     try:
-        DATA
+        redisData = json.loads(rd.get('data'))
     except NameError:
         return 'The data set does not exist yet!\n'
-
-    return DATA
+    except TypeError:
+        return 'The data set does not exist yet!\n'
+    
+    return redisData
 
 @app.route('/genes', methods=['GET'])
 def gene_ids() -> list:
