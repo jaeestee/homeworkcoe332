@@ -20,7 +20,7 @@ This homework contains the script ``gene_api.py``. This script is a flask applic
   - ``delete_data()``, ``post_data()``, ``data()``, ``gene_ids()``, and ``specific_gene_data()``.
 > The functions correspond to the queries in the "Queries To Use" section, respectively.
 
-> Back up to [Navigation]([https://github.com/jaeestee/ISS-Tracker/blob/main/README.md#navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation))
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation)
 # Image Handling
 ## Pulling the image ```jaeestee/gene_api``` from Docker Hub:
 To pull the existing image, run this command:
@@ -37,7 +37,7 @@ $ docker images
 > jaeestee/gene_api      latest    d8376d24fa21   1 hours ago     887MB
 > ```
 
-> Back up to [Navigation]([https://github.com/jaeestee/ISS-Tracker/blob/main/README.md#navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation))
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation)
 ## Running the image:
 To start running the containerized Flask app, run this command:
 ```bash
@@ -65,7 +65,7 @@ flask-app_1  |  * Debugger PIN: 436-748-674
 Now the app is running!
 > **IMPORTANT: Have this running on a separate window and keep it running while sending queries!!!**
 
-> Back up to [Navigation]([https://github.com/jaeestee/ISS-Tracker/blob/main/README.md#navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation))
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation)
 ## Building a New Image:
 To build a new image from the **Dockerfile** present in this directory, run this command:
 ```
@@ -95,7 +95,7 @@ Successfully tagged jaeestee/gene_api:latest
 ```
 Now you have successfully created your own image!
 
-> Back up to [Navigation]([https://github.com/jaeestee/ISS-Tracker/blob/main/README.md#navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation))
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation)
 # Queries To Use (**WITH THE APP RUNNING ON A SEPARATE TAB**):
 ## To load/reload the data, run this command:
 ```bash
@@ -106,7 +106,7 @@ If done properly, the output should look like this:
 Successfully reloaded the dictionary with the data from the web!
 ```
 
-> Back up to [Navigation]([https://github.com/jaeestee/ISS-Tracker/blob/main/README.md#navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation))
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation)
 ## To delete the data, run this command:
 ```bash
 $ curl localhost:5000/data -X DELETE
@@ -116,7 +116,7 @@ If done properly, the output should look like this:
 Successfully deleted all the data from the dictionary!
 ```
 
-> Back up to [Navigation]([https://github.com/jaeestee/ISS-Tracker/blob/main/README.md#navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation))
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation)
 ## To print the entire data set (whether it exists or is empty), run this command:
 ```bash
 $ curl localhost:5000/data
@@ -150,7 +150,7 @@ The data set does not exist yet!
 ```
 > This means that the DELETE method was called, emptying the data.
 
-> Back up to [Navigation]([https://github.com/jaeestee/ISS-Tracker/blob/main/README.md#navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation))
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation)
 ## To print out a list of all gene IDs in the data set, run this command:
 ```bash
 $ curl localhost:5000/genes
@@ -173,7 +173,7 @@ If done properly, the end of the output should look similar to this:
 ```
 > An error message will appear if the data is empty or doesn't exist yet. Additionally, there should be a lot more data points, this is just a shortened version.
 
-> Back up to [Navigation]([https://github.com/jaeestee/ISS-Tracker/blob/main/README.md#navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation))
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation)
 ## To print specific data on a gene, run this command:
 ```bash
 $ curl localhost:5000/genes/<geneID>
@@ -228,4 +228,4 @@ This gene data was provided by the HUGO Gene Nomenclature Committee. This commit
 
 In this application, the data was pulled from this specific url, [Current JSON format hgnc_complete_set file](https://ftp.ebi.ac.uk/pub/databases/genenames/hgnc/json/hgnc_complete_set.json), which is located at the very bottom of their website.
 
-> Back up to [Navigation]([https://github.com/jaeestee/ISS-Tracker/blob/main/README.md#navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation))
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation)
