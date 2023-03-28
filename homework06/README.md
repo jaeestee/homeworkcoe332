@@ -70,7 +70,7 @@ de1d39e3cab4   redis:7             "docker-entrypoint.s…"   2 seconds ago   Up
 
 To stop the application from running in the background, run this command:
 ```bash
-docker-compose down
+$ docker-compose down
 ```
 If done properly, the output should look similar to this:
 ```
