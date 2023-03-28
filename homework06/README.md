@@ -41,7 +41,7 @@ $ docker images
 ## Running the image:
 To start running the containerized Flask app, run this command:
 ```bash
-docker-compose up
+docker-compose up -d
 ```
 > Remember that the docker-compose.yml file must exist in the same folder for this to work!
 If done properly, the output should look similar to this:
@@ -75,22 +75,25 @@ $ docker build -t <dockerhubusername>/iss_tracker:<version> .
 
 If done properly, the output should look similar to this:
 ```
-Sending build context to Docker daemon   21.5kB
-Step 1/5 : FROM python:3.8.10
+Sending build context to Docker daemon  19.46kB
+Step 1/6 : FROM python:3.8.10
  ---> a369814a9797
-Step 2/5 : RUN pip install Flask==2.2.2
+Step 2/6 : RUN pip install Flask==2.2.2
  ---> Using cache
  ---> bbf69ba6f74f
-Step 3/5 : RUN pip install requests==2.22.0
+Step 3/6 : RUN pip install requests==2.22.0
  ---> Using cache
  ---> 4ffa49d19ef5
-Step 4/5 : COPY gene_api.py /gene_api.py
- ---> 2bcad41d3385
-Step 5/5 : CMD ["python", "gene_api.py"]
- ---> Running in c12334c932b1
-Removing intermediate container c12334c932b1
- ---> 573a6ad42ef6
-Successfully built 573a6ad42ef6
+Step 4/6 : RUN pip install redis==4.5.1
+ ---> Using cache
+ ---> c5c9cd8cc964
+Step 5/6 : COPY gene_api.py /gene_api.py
+ ---> 06dc8f8ebd53
+Step 6/6 : CMD ["python", "gene_api.py"]
+ ---> Running in b7b7f007b29f
+Removing intermediate container b7b7f007b29f
+ ---> 2a2936689823
+Successfully built 2a2936689823
 Successfully tagged jaeestee/gene_api:latest
 ```
 Now you have successfully created your own image!
