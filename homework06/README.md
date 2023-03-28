@@ -10,7 +10,7 @@
   - [Print the Entire Data](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#to-print-the-entire-data-set-whether-it-exists-or-is-empty-run-this-command)
   - [Print List of Gene IDs](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#to-print-out-a-list-of-all-gene-ids-in-the-data-set-run-this-command)
   - [Print a Specific Gene](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#to-print-specific-data-on-a-gene-run-this-command)
-  - [Describing the Gene Data](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#describing-the-gene-data)
+- [Describing the Gene Data](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#describing-the-gene-data)
   
 # The Data in the Genes
 This homework contains the script ``gene_api.py``. This script is a flask application that is used to return data from the Human Genome Organization (HUGO). The data returned is explained in the sections below.
@@ -222,10 +222,9 @@ If done properly, the output should look similar to this:
 ```
 > A message will appear if the data is empty or doesn't exist yet. Note: This is a shortened version of the data that should be printed.
 
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation)
 # Describing the Gene Data:
 This gene data was provided by the HUGO Gene Nomenclature Committee. This committee is a part of the Human Genome Organization (HUGO) and oversees the approval of every gene name. Therefore, HGNC assigns every gene an HGNC ID, a gene symbol, an approved name, and many more (for more details, check out the website below).
 > From the [HGNC Complete Set Archive](https://www.genenames.org/download/archive/)
 
 In this application, the data was pulled from this specific url, [Current JSON format hgnc_complete_set file](https://ftp.ebi.ac.uk/pub/databases/genenames/hgnc/json/hgnc_complete_set.json), which is located at the very bottom of their website.
-
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation)
