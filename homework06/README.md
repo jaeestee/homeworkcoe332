@@ -5,7 +5,7 @@
   - [Running the Image](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#running-the-image)
   - [Building a New Image](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#building-a-new-image)
 - [Queries to Use](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#queries-to-use)
-  - [Load/Reload the Data](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#to-load-the-data-run-this-command)
+  - [Load the Data](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#to-load-the-data-run-this-command)
   - [Delete the Data](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#to-delete-the-data-run-this-command)
   - [Print the Entire Data](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#to-print-the-entire-data-set-whether-it-exists-or-is-empty-run-this-command)
   - [Print List of Gene IDs](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#to-print-out-a-list-of-all-gene-ids-in-the-data-set-run-this-command)
