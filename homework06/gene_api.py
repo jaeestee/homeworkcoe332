@@ -8,16 +8,13 @@ rd = redis.Redis(host='redis-db', port=6379, db=0, decode_responses=True)
 @app.route('/data', methods=['DELETE'])
 def delete_data() -> str:
     """
-    This function deletes the data and replaces the data with a blank dictionary.
+    This function deletes the data completely.
 
     Returns:
         message (str): Message saying that the data was deleted.
     """
-
-    #making DATA a global variable
-    #global DATA
-
-    #simply setting DATA equal to nothing so that it "deletes" the data
+    
+    #deletes the entire data set from the redis client
     rd.flushdb()
 
     message = 'Successfully deleted all the data from the dictionary!\n'
@@ -32,17 +29,17 @@ def post_data() -> str:
     Returns:
         message (str): Message saying that the data was successfully reloaded.
     """
-
-    #making DATA a global variable
-    #global DATA
     
     #stores the data from the get request into the data variable and converts it into a dictionary
     data = requests.get(url='https://ftp.ebi.ac.uk/pub/databases/genenames/hgnc/json/hgnc_complete_set.json')
     data = data.json()
 
+    #stores the data into the redis client, but as a serialized dictionary string
     rd.set('data', json.dumps(data))
 
+    #the success message
     message = 'Successfully reloaded the dictionary with the data from the web!\n'
+    
     return message
     
 @app.route('/data', methods=['GET'])
@@ -57,11 +54,12 @@ def data() -> dict:
 
     #try-except block that returns if the data doesn't exist and an error occurs because of it
     try:
+        #un-seralizing the string into a dictionary
         redisData = json.loads(rd.get('data'))
     except NameError:
-        return 'The data set does not exist yet!\n'
+        return 'The data does not exist...\n'
     except TypeError:
-        return 'The data set does not exist yet!\n'
+        return 'The data does not exist...\n'
     
     return redisData
 
@@ -81,9 +79,9 @@ def gene_ids() -> list:
         #stores the entire gene data by navigating through the entire data dictionary
         listOfGenes = data()['response']['docs']
     except TypeError:
-        return 'The data set does not exist yet!\n'
+        return 'The data does not exist...\n'
     except KeyError:
-        return 'The data is empty!\n'
+        return 'The data does not exist...\n'
 
     #initializing a new blank list to store the "new" data
     results = []
@@ -112,13 +110,11 @@ def specific_gene_data(geneID: str) -> dict:
     try:
         genesDict = data()['response']['docs']
     except TypeError:
-        return 'The data seems to be empty or does not exist...\n'
+        return 'The data does not exist...\n'
     except NameError:
-        return 'The data seems to be empty or does not exist...\n'
-    except TypeError:
-        return 'The data seems to be empty or does not exist...\n'
+        return 'The data does not exist...\n'
     except KeyError:
-        return 'The data seems to be empty or does not exist...\n'
+        return 'The data does not exist...\n'
     
     #sorts through the list to match the gene ID and returns the data for it
     for i in range(len(genesDict)):
