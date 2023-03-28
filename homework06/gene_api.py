@@ -59,7 +59,7 @@ def data() -> dict:
 
     return DATA
 
-@app.route('/epochs', methods=['GET'])
+@app.route('/genes', methods=['GET'])
 def epoch_data() -> list:
     """
     This function calls the get_data() function to retrieve the entire data set and returns the listOfEpochs
@@ -74,28 +74,18 @@ def epoch_data() -> list:
     #try-except block that makes sure it returns a message if the data is empty or doesn't exist
     try:
         #stores the entire epoch data by navigating through the entire data dictionary
-        listOfEpochs = data()['ndm']['oem']['body']['segment']['data']['stateVector']
+        listOfGenes = data()['responses']['docs']['hgnc_id']
     except TypeError:
         return 'The data set does not exist yet!\n'
     except KeyError:
         return 'The data is empty!\n'
-
-    #try and except blocks for the limit and offset variables so that it can only be an integer
-    try:
-        limit = int(request.args.get('limit', len(listOfEpochs)))
-    except ValueError:
-        return 'ERROR: Please send an integer for the limit!\n', 400
-    try:
-        offset = int(request.args.get('offset', 0))
-    except ValueError:
-        return 'ERROR: Please send an integer for the offset!\n', 400
 
     #initializing a new blank list to store the "new" data
     results = []
 
     #for loop that stores the requested Epoch data
     for i in range(limit):
-        results.append(listOfEpochs[i+offset])
+        results.append(listOfEpochs[i])
     
     return results
 
