@@ -117,7 +117,7 @@ Successfully deleted all the data from the dictionary!
 ```
 
 > Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation)
-## To print the entire data set (whether it exists or is empty), run this command:
+## To print the entire data set (whether it exists or not), run this command:
 ```bash
 $ curl localhost:5000/data
 ```
@@ -140,15 +140,9 @@ If done properly, the end of the output should look similar to one of these 3 ou
 
 - Output possibility 2:
 ```
-The data set does not exist yet!
+The data does not exist...
 ```
-> This means that the POST method has not been called.
-
-- Output possibility 3:
-```
-{}
-```
-> This means that the DELETE method was called, emptying the data.
+> This means that the POST method has not been called or that the DELETE method was called.
 
 > Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation)
 ## To print out a list of all gene IDs in the data set, run this command:
