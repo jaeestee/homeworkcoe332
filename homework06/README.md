@@ -1,22 +1,5 @@
 # Navigation:
-- [ISS Complete Tracking](https://github.com/jaeestee/ISS-Tracker/blob/main/README.md#iss-complete-tracking)
-- [Image Handling](https://github.com/jaeestee/ISS-Tracker/blob/main/README.md#image-handling)
-  - [Pulling the Image](https://github.com/jaeestee/ISS-Tracker/blob/main/README.md#pulling-the-image-jaeesteeiss_tracker-from-docker-hub)
-  - [Running the Image](https://github.com/jaeestee/ISS-Tracker/blob/main/README.md#running-the-image)
-  - [Building a New Image](https://github.com/jaeestee/ISS-Tracker/blob/main/README.md#building-a-new-image)
-- [Queries to Use](https://github.com/jaeestee/ISS-Tracker/blob/main/README.md#queries-to-use-while-the-app-is-running)
-  - [Load/Reload Data](https://github.com/jaeestee/ISS-Tracker/blob/main/README.md#to-loadreload-the-data-run-this-command)
-  - [Delete Data](https://github.com/jaeestee/ISS-Tracker/blob/main/README.md#to-delete-the-data-run-this-command)
-  - [Print Entire Data](https://github.com/jaeestee/ISS-Tracker/blob/main/README.md#to-print-the-entire-data-set-whether-it-exists-or-is-empty-run-this-command)
-  - [Print Comments](https://github.com/jaeestee/ISS-Tracker/blob/main/README.md#to-print-the-comments-in-the-data-run-this-command)
-  - [Print Header](https://github.com/jaeestee/ISS-Tracker/blob/main/README.md#to-print-the-header-in-the-data-run-this-command)
-  - [Print Metadata](https://github.com/jaeestee/ISS-Tracker/blob/main/README.md#to-print-the-metadata-in-the-data-run-this-command)
-  - [Print Current ISS Location](https://github.com/jaeestee/ISS-Tracker/blob/main/README.md#to-print-the-current-location-of-the-iss-run-this-command)
-  - [Print List of Epochs](https://github.com/jaeestee/ISS-Tracker/blob/main/README.md#to-print-out-a-list-of-all-epochs-in-the-data-set-run-this-command)
-  - [Print Specific Epoch](https://github.com/jaeestee/ISS-Tracker/blob/main/README.md#to-print-a-specific-epoch-run-this-command)
-  - [Print Location of Specific Epoch](https://github.com/jaeestee/ISS-Tracker/blob/main/README.md#to-print-the-location-of-a-specific-epoch-run-this-command)
-  - [Print Speed of Specific Epoch](https://github.com/jaeestee/ISS-Tracker/blob/main/README.md#to-print-the-speed-of-a-specific-epoch-run-this-command)
-- [Desribing the ISS Data](https://github.com/jaeestee/ISS-Tracker/blob/main/README.md#describing-the-iss-data)
+- put stuff here
   
 # ISS Complete Tracking
 This homework contains the script ``iss_tracker.py``. This script is a flask application that is used to return data from the iss trajectory data. The data returned is explained in the sections below.
@@ -105,7 +88,7 @@ Now you have successfully created your own image!
 # Queries To Use While The App is Running:
 ## To load/reload the data, run this command:
 ```bash
-$ curl localhost:5000/post-data -X POST
+$ curl localhost:5000/data -X POST
 ```
 If done properly, the output should look like this:
 ```
@@ -115,7 +98,7 @@ Successfully reloaded the dictionary with the data from the web!
 > Back up to [Navigation](https://github.com/jaeestee/ISS-Tracker/blob/main/README.md#navigation)
 ## To delete the data, run this command:
 ```bash
-$ curl localhost:5000/delete-data -X DELETE
+$ curl localhost:5000/data -X DELETE
 ```
 If done properly, the output should look like this:
 ```
@@ -125,33 +108,24 @@ Successfully deleted all the data from the dictionary!
 > Back up to [Navigation](https://github.com/jaeestee/ISS-Tracker/blob/main/README.md#navigation)
 ## To print the entire data set (whether it exists or is empty), run this command:
 ```bash
-$ curl localhost:5000/
+$ curl localhost:5000/data
 ```
 > This will send a get request using curl to the app that should be running.
 
 If done properly (**WITH THE APP RUNNING ON A SEPARATE TAB**), the end of the output should look similar to one of these 3 outputs:
 - Output possibility 1:
 ```
-"metadata": {
-            "CENTER_NAME": "EARTH",
-            "OBJECT_ID": "1998-067-A",
-            "OBJECT_NAME": "ISS",
-            "REF_FRAME": "EME2000",
-            "START_TIME": "2023-048T12:00:00.000Z",
-            "STOP_TIME": "2023-063T12:00:00.000Z",
-            "TIME_SYSTEM": "UTC"
-          }
-        }
-      },
-      "header": {
-        "CREATION_DATE": "2023-049T01:38:49.191Z",
-        "ORIGINATOR": "JSC"
-      }
-    }
+    ],
+    "numFound": 43625,
+    "start": 0
+  },
+  "responseHeader": {
+    "QTime": 26,
+    "status": 0
   }
 }
 ```
-> This will print out the entire data set, but as long as you see the metadata section, it printed everything properly.
+> This will print out the entire data set, but as long as you see something similar to this last section, it printed everything properly.
 - Output possibility 2:
 
 ```
