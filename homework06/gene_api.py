@@ -111,7 +111,9 @@ def specific_gene_data(geneID: str) -> dict:
         return 'The data seems to be empty or does not exist...\n'
     except TypeError:
         return 'The data seems to be empty or does not exist...\n'
-
+    except KeyError:
+        return 'The data seems to be empty or does not exist...\n'
+    
     #sorts through the list to match the gene ID and returns the data for it
     for i in range(len(genesDict)):
         if genesDict[i]['hgnc_id'] == geneID:
