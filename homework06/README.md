@@ -142,7 +142,7 @@ $ curl localhost:5000/data
 ```
 > This will send a get request using curl to the app that should be running.
 
-If done properly, the end of the output should look similar to one of these 3 outputs:
+If done properly, the end of the output should look similar to one of these 2 output possibilities:
 - Output possibility 1:
 ```
     ],
