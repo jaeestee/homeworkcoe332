@@ -1,5 +1,5 @@
 from flask import Flask, request
-import requests, math
+import requests
 
 app = Flask(__name__)
 
@@ -62,18 +62,17 @@ def data() -> dict:
 @app.route('/genes', methods=['GET'])
 def gene_ids() -> list:
     """
-    This function calls the get_data() function to retrieve the entire data set and returns the listOfEpochs
-    variable. It can take in query parameters of offset and limit which will cause the data to start at a
-    different point and limit the amount of data returned.
+    This function tries to retrieve the data from the data() function and will print the list of
+    gene IDs if the data set exists. If it is empty or doesn't exist, it will print out an error
+    message.
 
     Returns:
-        results (list): The results from the entire list of Epochs from the iss data considering the offset and
-        limit parameters.
+        results (list): The entire list of gene IDs.
     """
 
     #try-except block that makes sure it returns a message if the data is empty or doesn't exist
     try:
-        #stores the entire epoch data by navigating through the entire data dictionary
+        #stores the entire gene data by navigating through the entire data dictionary
         listOfGenes = data()['response']['docs']
     except TypeError:
         return 'The data set does not exist yet!\n'
@@ -83,7 +82,7 @@ def gene_ids() -> list:
     #initializing a new blank list to store the "new" data
     results = []
 
-    #for loop that stores the requested Epoch data
+    #for loop that stores the requested gene ID data
     for i in range(len(listOfGenes)):
         results.append(listOfGenes[i]['hgnc_id'])
     
@@ -92,18 +91,20 @@ def gene_ids() -> list:
 @app.route('/genes/<string:geneID>', methods=['GET'])
 def specific_gene_data(geneID: str) -> dict:
     """
-    This function returns the specific epoch data that was requested by the user.
+    This function returns the specific gene data that was requested by the user.
+    However, if the data set is empty or doesn't exist, it will return an error
+    message.
 
     Args:
-        epoch (str): The specific epoch key to find the requested epoch data.
+        geneID (str): The specific gene ID to find the requested gene data.
 
     Returns:
-        epochData (dict): The epoch data for the given epoch key.
+        genesDict (dict): The gene data for the given gene ID.
     """
     
     #try-except block to make sure the data has information
     try:
-        listOfGenes = data()['response']['docs']
+        genesDict = data()['response']['docs']
     except TypeError:
         return 'The data seems to be empty or does not exist...\n'
     except NameError:
@@ -111,13 +112,13 @@ def specific_gene_data(geneID: str) -> dict:
     except TypeError:
         return 'The data seems to be empty or does not exist...\n'
 
-    #shorts through the list to match the epoch key and returns the data for it
-    for i in range(len(listOfGenes)):
-        if listOfGenes[i]['hgnc_id'] == geneID:
-            return listOfGenes[i]
+    #sorts through the list to match the gene ID and returns the data for it
+    for i in range(len(genesDict)):
+        if genesDict[i]['hgnc_id'] == geneID:
+            return genesDict[i]
 
     #if it doesn't find it, returns this prompt
-    return 'Could not find the epoch for the given key.\n'
+    return 'Could not find the gene data for the given ID.\n'
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
