@@ -21,6 +21,11 @@ spec:
     spec:
       containers:
         - name: jo25672-test-geneapi
-          image: jo25672/gene_api:k8
-	  ports:
-	  - containerPort: 5000
+          imagePullPolicy: Always
+          image: jaeestee/gene_api:k8
+          env:
+          - name: FLASK_APP
+            value: "gene_api.py"
+          ports:
+          - name: http
+            containerPort: 5000
