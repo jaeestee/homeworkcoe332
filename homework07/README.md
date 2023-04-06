@@ -1,16 +1,16 @@
 # Navigation:
-- [The Data in the Genes](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#the-data-in-the-genes)
-- [Image Handling](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#image-handling)
-  - [Pulling the Image](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#running-the-image)
-  - [Running the Image](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#running-the-image)
-  - [Building a New Image](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#building-a-new-image)
-- [Queries to Use](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#queries-to-use)
-  - [Load the Data](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#to-load-the-data-run-this-command)
-  - [Delete the Data](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#to-delete-the-data-run-this-command)
-  - [Print the Entire Data](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#to-print-the-entire-data-set-whether-it-exists-or-is-empty-run-this-command)
-  - [Print List of Gene IDs](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#to-print-out-a-list-of-all-gene-ids-in-the-data-set-run-this-command)
-  - [Print a Specific Gene](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#to-print-specific-data-on-a-gene-run-this-command)
-- [Describing the Gene Data](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#describing-the-gene-data)
+- [The Data in the Genes](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#the-data-in-the-genes)
+- [Image Handling](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#image-handling)
+  - [Pulling the Image](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#running-the-image)
+  - [Running the Image](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#running-the-image)
+  - [Building a New Image](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#building-a-new-image)
+- [Queries to Use](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#queries-to-use)
+  - [Load the Data](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#to-load-the-data-run-this-command)
+  - [Delete the Data](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#to-delete-the-data-run-this-command)
+  - [Print the Entire Data](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#to-print-the-entire-data-set-whether-it-exists-or-is-empty-run-this-command)
+  - [Print List of Gene IDs](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#to-print-out-a-list-of-all-gene-ids-in-the-data-set-run-this-command)
+  - [Print a Specific Gene](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#to-print-specific-data-on-a-gene-run-this-command)
+- [Describing the Gene Data](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#describing-the-gene-data)
   
 # The Data in the Genes
 This homework contains the script ``gene_api.py``. This script is a flask and redis application that is used to return data from the Human Genome Organization (HUGO). The data returned is explained in the sections below.
@@ -20,7 +20,7 @@ This homework contains the script ``gene_api.py``. This script is a flask and re
   - ``delete_data()``, ``post_data()``, ``data()``, ``gene_ids()``, and ``specific_gene_data()``.
 > The functions correspond to the queries in the "Queries To Use" section, respectively.
 
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation)
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#navigation)
 # Image Handling
 ## Pulling the image ```jaeestee/gene_api``` from Docker Hub:
 To pull the existing image, run this command:
@@ -37,7 +37,7 @@ $ docker images
 > jaeestee/gene_api      latest    d8376d24fa21   1 hours ago     887MB
 > ```
 
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation)
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#navigation)
 ## Running the image:
 To start running the containerized Flask app, run this command:
 ```bash
@@ -81,7 +81,7 @@ Removing homework06_redis-db_1  ... done
 Removing network homework06_default
 ```
 
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation)
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#navigation)
 ## Building a New Image:
 To build a new image from the **Dockerfile** present in this directory, run this command:
 ```
@@ -114,6 +114,7 @@ Successfully tagged jaeestee/gene_api:latest
 ```
 Now you have successfully created your own image!
 
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#navigation)
 # Kubernetes Cluster:
 ## Setting Up The Cluster:
 To set up the cluster, first run these commands:
@@ -144,7 +145,7 @@ py-debug-deployment-f484b4b99-tprrp     1/1     Running   0          17m
 
 Now everything is set up!
 
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation)
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#navigation)
 ## Testing the Kubernetes Cluster:
 To test the cluster and make sure the flask api is functioning properly, use this command to enter the python pod:
 ```bash
@@ -167,6 +168,7 @@ For example:
 root@py-debug-deployment-f484b4b99-tprrp:/# curl jo25672-test-geneapi-service:5000/genes
 ```
 
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#navigation)
 ## Creating Your Own Image for K8:
 To build a new image from the **Dockerfile** present in this directory, run this command:
 ```
@@ -199,6 +201,7 @@ Successfully tagged jaeestee/gene_api:k8
 ```
 Now you have successfully created your own image!
 
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#navigation)
 ## Pushing the New Image for K8:
 Now that your own image was created, it must be pushed for the Kubernetes Cluster to function properly. To do so, use this command:
 ```bash
@@ -224,6 +227,7 @@ e4d0e810d54a: Layer already exists
 k8: digest: sha256:a722680b5e6dff7fac131dc8128bc1563700e88c67d7c617745ed227b2f066a1 size: 3057
 ```
 
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#navigation)
 ## Editing a File for K8:
 Since you have your own image now, you need to edit the ```jo25672-test-geneapi-deployment.yml``` file. To do this, enter into any text editing command like this:
 ```bash
@@ -270,7 +274,7 @@ To save the file in ```emacs```, press ```Ctrl+X``` and then ```Ctrl+C```, where
 
 You have now completed making your own image for the K8 cluster!
 
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation)
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#navigation)
 # Queries To Use:
 ## To load the data, run this command:
 ```bash
@@ -281,7 +285,7 @@ If done properly, the output should look like this:
 Successfully reloaded the dictionary with the data from the web!
 ```
 
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation)
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#navigation)
 ## To delete the data, run this command:
 ```bash
 $ curl localhost:5000/data -X DELETE
@@ -291,7 +295,7 @@ If done properly, the output should look like this:
 Successfully deleted all the data from the dictionary!
 ```
 
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation)
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#navigation)
 ## To print the entire data set (whether it exists or not), run this command:
 ```bash
 $ curl localhost:5000/data
@@ -319,7 +323,7 @@ The data does not exist...
 ```
 > This means that the POST method has not been called or that the DELETE method was called.
 
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation)
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#navigation)
 ## To print out a list of all gene IDs in the data set, run this command:
 ```bash
 $ curl localhost:5000/genes
@@ -342,7 +346,7 @@ If done properly, the end of the output should look similar to this:
 ```
 > An error message will appear if the data is empty or doesn't exist yet. Additionally, there should be a lot more data points, this is just a shortened version.
 
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation)
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#navigation)
 ## To print specific data on a gene, run this command:
 ```bash
 $ curl localhost:5000/genes/<geneID>
@@ -391,10 +395,10 @@ If done properly, the output should look similar to this:
 ```
 > A message will appear if the data is empty or doesn't exist yet. Note: This is a shortened version of the data that should be printed.
 
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation)
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#navigation)
 # Describing the Gene Data:
 This gene data was provided by the HUGO Gene Nomenclature Committee. This committee is a part of the Human Genome Organization (HUGO) and oversees the approval of every gene name. Therefore, HGNC assigns every gene an HGNC ID, a gene symbol, an approved name, and many more (for more details, check out the website below).
 > From the [HGNC Complete Set Archive](https://www.genenames.org/download/archive/)
 
 In this application, the data was pulled from this specific url, [Current JSON format hgnc_complete_set file](https://ftp.ebi.ac.uk/pub/databases/genenames/hgnc/json/hgnc_complete_set.json), which is located at the very bottom of their website.
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework06/README.md#navigation)
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#navigation)
