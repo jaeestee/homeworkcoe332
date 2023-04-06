@@ -1,5 +1,5 @@
 # Navigation:
-- [The Data in the Genes](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#the-data-in-the-genes)
+- [The Data in the Genes + Kubernetes](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#the-data-in-the-genes--kubernetes)
 - [Image Handling](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#image-handling)
   - [Pulling the Image](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#running-the-image)
   - [Running the Image](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#running-the-image)
