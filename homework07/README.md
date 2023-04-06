@@ -26,6 +26,19 @@ This homework contains the script ``gene_api.py``. This script is a flask and re
   - ``delete_data()``, ``post_data()``, ``data()``, ``gene_ids()``, and ``specific_gene_data()``.
 > The functions correspond to the queries in the "Queries To Use" section, respectively.
 
+***deployment-python-debug.yml***
+- This yml file is used for the Kubernetes Cluster and is used to test the program by entering its ```/bin/bash``` interactive terminal.
+
+***jo25672-test-geneapi-deployment.yml***
+***jo25672-test-geneapi-service.yml***
+- These yml files are used for the Kubernetes Cluster and is used to run the gene_api.
+
+***jo25672-test-redis-deployment.yml***
+***jo25672-test-redis-pvc.yml***
+***jo25672-test-redis-service.yml***
+- These yml files are used for the Kubernetes Cluster and is used to run the redis portion of the cluster.
+> This helps save the data of the api indefinitely, even if the pods are destroyed.
+
 > Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#navigation)
 # Image Handling
 ## Pulling the image ```jaeestee/gene_api``` from Docker Hub:
