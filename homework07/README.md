@@ -18,7 +18,7 @@
   - [Print a Specific Gene](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#to-print-specific-data-on-a-gene-run-this-command)
 - [Describing the Gene Data](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#describing-the-gene-data)
   
-# The Data in the Genes
+# The Data in the Genes + Kubernetes
 This homework contains the script ``gene_api.py``. This script is a flask and redis application that is used to return data from the Human Genome Organization (HUGO). The data returned is explained in the sections below.
 
 ***gene_api.py***
