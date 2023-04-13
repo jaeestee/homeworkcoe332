@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang=en>
+  <head>
+    <title>UnicodeDecodeError: 'utf-8' codec can't decode byte 0x89 in position 0: invalid start byte
+ // Werkzeug Debugger</title>
+    <link rel="stylesheet" href="?__debugger__=yes&amp;cmd=resource&amp;f=style.css">
+    <link rel="shortcut icon"
+        href="?__debugger__=yes&amp;cmd=resource&amp;f=console.png">
+    <script src="?__debugger__=yes&amp;cmd=resource&amp;f=debugger.js"></script>
+    <script>
+      var CONSOLE_MODE = false,
+          EVALEX = true,
+          EVALEX_TRUSTED = false,
+          SECRET = "pOwgIYKVRycGAhwLOTkB";
+    </script>
+  </head>
+  <body style="background-color: #fff">
+    <div class="debugger">
+<h1>UnicodeDecodeError</h1>
+<div class="detail">
+  <p class="errormsg">UnicodeDecodeError: &#39;utf-8&#39; codec can&#39;t decode byte 0x89 in position 0: invalid start byte
+</p>
+</div>
+<h2 class="traceback">Traceback <em>(most recent call last)</em></h2>
+<div class="traceback">
+  <h3></h3>
+  <ul><li><div class="frame" id="frame-140478781568160">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/flask/app.py"</cite>,
+      line <em class="line">2548</em>,
+      in <code class="function">__call__</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">    </span>def __call__(self, environ: dict, start_response: t.Callable) -&gt; t.Any:</pre>
+<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;The WSGI server calls the Flask application object as the</pre>
+<pre class="line before"><span class="ws">        </span>WSGI application. This calls :meth:`wsgi_app`, which can be</pre>
+<pre class="line before"><span class="ws">        </span>wrapped to apply middleware.</pre>
+<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;</pre>
+<pre class="line current"><span class="ws">        </span>return self.wsgi_app(environ, start_response)</pre></div>
+</div>
+
+<li><div class="frame" id="frame-140478781568384">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/flask/app.py"</cite>,
+      line <em class="line">2528</em>,
+      in <code class="function">wsgi_app</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">            </span>try:</pre>
+<pre class="line before"><span class="ws">                </span>ctx.push()</pre>
+<pre class="line before"><span class="ws">                </span>response = self.full_dispatch_request()</pre>
+<pre class="line before"><span class="ws">            </span>except Exception as e:</pre>
+<pre class="line before"><span class="ws">                </span>error = e</pre>
+<pre class="line current"><span class="ws">                </span>response = self.handle_exception(e)</pre>
+<pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
+<pre class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre>
+<pre class="line after"><span class="ws">                </span>raise</pre>
+<pre class="line after"><span class="ws">            </span>return response(environ, start_response)</pre>
+<pre class="line after"><span class="ws">        </span>finally:</pre></div>
+</div>
+
+<li><div class="frame" id="frame-140478781568608">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/flask/app.py"</cite>,
+      line <em class="line">2525</em>,
+      in <code class="function">wsgi_app</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">        </span>ctx = self.request_context(environ)</pre>
+<pre class="line before"><span class="ws">        </span>error: t.Optional[BaseException] = None</pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line before"><span class="ws">            </span>try:</pre>
+<pre class="line before"><span class="ws">                </span>ctx.push()</pre>
+<pre class="line current"><span class="ws">                </span>response = self.full_dispatch_request()</pre>
+<pre class="line after"><span class="ws">            </span>except Exception as e:</pre>
+<pre class="line after"><span class="ws">                </span>error = e</pre>
+<pre class="line after"><span class="ws">                </span>response = self.handle_exception(e)</pre>
+<pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
+<pre class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre></div>
+</div>
+
+<li><div class="frame" id="frame-140478781568720">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/flask/app.py"</cite>,
+      line <em class="line">1822</em>,
+      in <code class="function">full_dispatch_request</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">            </span>request_started.send(self)</pre>
+<pre class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
+<pre class="line before"><span class="ws">            </span>if rv is None:</pre>
+<pre class="line before"><span class="ws">                </span>rv = self.dispatch_request()</pre>
+<pre class="line before"><span class="ws">        </span>except Exception as e:</pre>
+<pre class="line current"><span class="ws">            </span>rv = self.handle_user_exception(e)</pre>
+<pre class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def finalize_request(</pre>
+<pre class="line after"><span class="ws">        </span>self,</pre>
+<pre class="line after"><span class="ws">        </span>rv: t.Union[ft.ResponseReturnValue, HTTPException],</pre></div>
+</div>
+
+<li><div class="frame" id="frame-140478781568272">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/flask/app.py"</cite>,
+      line <em class="line">1820</em>,
+      in <code class="function">full_dispatch_request</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line before"><span class="ws">            </span>request_started.send(self)</pre>
+<pre class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
+<pre class="line before"><span class="ws">            </span>if rv is None:</pre>
+<pre class="line current"><span class="ws">                </span>rv = self.dispatch_request()</pre>
+<pre class="line after"><span class="ws">        </span>except Exception as e:</pre>
+<pre class="line after"><span class="ws">            </span>rv = self.handle_user_exception(e)</pre>
+<pre class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def finalize_request(</pre></div>
+</div>
+
+<li><div class="frame" id="frame-140478781568832">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/flask/app.py"</cite>,
+      line <em class="line">1796</em>,
+      in <code class="function">dispatch_request</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">            </span>and req.method == &#34;OPTIONS&#34;</pre>
+<pre class="line before"><span class="ws">        </span>):</pre>
+<pre class="line before"><span class="ws">            </span>return self.make_default_options_response()</pre>
+<pre class="line before"><span class="ws">        </span># otherwise dispatch to the handler for that endpoint</pre>
+<pre class="line before"><span class="ws">        </span>view_args: t.Dict[str, t.Any] = req.view_args  # type: ignore[assignment]</pre>
+<pre class="line current"><span class="ws">        </span>return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def full_dispatch_request(self) -&gt; Response:</pre>
+<pre class="line after"><span class="ws">        </span>&#34;&#34;&#34;Dispatches the request and on top of that performs request</pre>
+<pre class="line after"><span class="ws">        </span>pre and postprocessing as well as HTTP exception catching and</pre>
+<pre class="line after"><span class="ws">        </span>error handling.</pre></div>
+</div>
+
+<li><div class="frame" id="frame-140478781568944">
+  <h4>File <cite class="filename">"/gene_api.py"</cite>,
+      line <em class="line">212</em>,
+      in <code class="function">get_image</code></h4>
+  <div class="source "><pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">    </span>Returns:</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">    </span>&#34;&#34;&#34;</pre>
+<pre class="line before"><span class="ws">    </span>try:</pre>
+<pre class="line current"><span class="ws">        </span>rdi.get(&#39;image&#39;)</pre>
+<pre class="line after"><span class="ws">    </span>except NameError:</pre>
+<pre class="line after"><span class="ws">        </span>return &#39;The data does not exist...\n&#39;</pre>
+<pre class="line after"><span class="ws">    </span>except TypeError:</pre>
+<pre class="line after"><span class="ws">        </span>return &#39;The data does not exist...\n&#39;</pre>
+<pre class="line after"><span class="ws"></span> </pre></div>
+</div>
+
+<li><div class="frame" id="frame-140478781569056">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/redis/commands/core.py"</cite>,
+      line <em class="line">1790</em>,
+      in <code class="function">get</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;</pre>
+<pre class="line before"><span class="ws">        </span>Return the value at key ``name``, or None if the key doesn&#39;t exist</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">        </span>For more information see https://redis.io/commands/get</pre>
+<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;</pre>
+<pre class="line current"><span class="ws">        </span>return self.execute_command(&#34;GET&#34;, name)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def getdel(self, name: KeyT) -&gt; ResponseT:</pre>
+<pre class="line after"><span class="ws">        </span>&#34;&#34;&#34;</pre>
+<pre class="line after"><span class="ws">        </span>Get the value at key ``name`` and delete the key. This command</pre>
+<pre class="line after"><span class="ws">        </span>is similar to GET, except for the fact that it also deletes</pre></div>
+</div>
+
+<li><div class="frame" id="frame-140478781569168">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/redis/client.py"</cite>,
+      line <em class="line">1258</em>,
+      in <code class="function">execute_command</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">        </span>pool = self.connection_pool</pre>
+<pre class="line before"><span class="ws">        </span>command_name = args[0]</pre>
+<pre class="line before"><span class="ws">        </span>conn = self.connection or pool.get_connection(command_name, **options)</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line current"><span class="ws">            </span>return conn.retry.call_with_retry(</pre>
+<pre class="line after"><span class="ws">                </span>lambda: self._send_command_parse_response(</pre>
+<pre class="line after"><span class="ws">                    </span>conn, command_name, *args, **options</pre>
+<pre class="line after"><span class="ws">                </span>),</pre>
+<pre class="line after"><span class="ws">                </span>lambda error: self._disconnect_raise(conn, error),</pre>
+<pre class="line after"><span class="ws">            </span>)</pre></div>
+</div>
+
+<li><div class="frame" id="frame-140478781569280">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/redis/retry.py"</cite>,
+      line <em class="line">46</em>,
+      in <code class="function">call_with_retry</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;</pre>
+<pre class="line before"><span class="ws">        </span>self._backoff.reset()</pre>
+<pre class="line before"><span class="ws">        </span>failures = 0</pre>
+<pre class="line before"><span class="ws">        </span>while True:</pre>
+<pre class="line before"><span class="ws">            </span>try:</pre>
+<pre class="line current"><span class="ws">                </span>return do()</pre>
+<pre class="line after"><span class="ws">            </span>except self._supported_errors as error:</pre>
+<pre class="line after"><span class="ws">                </span>failures += 1</pre>
+<pre class="line after"><span class="ws">                </span>fail(error)</pre>
+<pre class="line after"><span class="ws">                </span>if self._retries &gt;= 0 and failures &gt; self._retries:</pre>
+<pre class="line after"><span class="ws">                    </span>raise error</pre></div>
+</div>
+
+<li><div class="frame" id="frame-140478781569392">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/redis/client.py"</cite>,
+      line <em class="line">1259</em>,
+      in <code class="function">&lt;lambda&gt;</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">        </span>command_name = args[0]</pre>
+<pre class="line before"><span class="ws">        </span>conn = self.connection or pool.get_connection(command_name, **options)</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line before"><span class="ws">            </span>return conn.retry.call_with_retry(</pre>
+<pre class="line current"><span class="ws">                </span>lambda: self._send_command_parse_response(</pre>
+<pre class="line after"><span class="ws">                    </span>conn, command_name, *args, **options</pre>
+<pre class="line after"><span class="ws">                </span>),</pre>
+<pre class="line after"><span class="ws">                </span>lambda error: self._disconnect_raise(conn, error),</pre>
+<pre class="line after"><span class="ws">            </span>)</pre>
+<pre class="line after"><span class="ws">        </span>finally:</pre></div>
+</div>
+
+<li><div class="frame" id="frame-140478781569504">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/redis/client.py"</cite>,
+      line <em class="line">1235</em>,
+      in <code class="function">_send_command_parse_response</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">    </span>def _send_command_parse_response(self, conn, command_name, *args, **options):</pre>
+<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;</pre>
+<pre class="line before"><span class="ws">        </span>Send a command and parse the response</pre>
+<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;</pre>
+<pre class="line before"><span class="ws">        </span>conn.send_command(*args)</pre>
+<pre class="line current"><span class="ws">        </span>return self.parse_response(conn, command_name, **options)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def _disconnect_raise(self, conn, error):</pre>
+<pre class="line after"><span class="ws">        </span>&#34;&#34;&#34;</pre>
+<pre class="line after"><span class="ws">        </span>Close the connection and raise an exception</pre>
+<pre class="line after"><span class="ws">        </span>if retry_on_error is not set or the error</pre></div>
+</div>
+
+<li><div class="frame" id="frame-140478781569728">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/redis/client.py"</cite>,
+      line <em class="line">1275</em>,
+      in <code class="function">parse_response</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line before"><span class="ws">            </span>if NEVER_DECODE in options:</pre>
+<pre class="line before"><span class="ws">                </span>response = connection.read_response(disable_decoding=True)</pre>
+<pre class="line before"><span class="ws">                </span>options.pop(NEVER_DECODE)</pre>
+<pre class="line before"><span class="ws">            </span>else:</pre>
+<pre class="line current"><span class="ws">                </span>response = connection.read_response()</pre>
+<pre class="line after"><span class="ws">        </span>except ResponseError:</pre>
+<pre class="line after"><span class="ws">            </span>if EMPTY_RESPONSE in options:</pre>
+<pre class="line after"><span class="ws">                </span>return options[EMPTY_RESPONSE]</pre>
+<pre class="line after"><span class="ws">            </span>raise</pre>
+<pre class="line after"><span class="ws"></span> </pre></div>
+</div>
+
+<li><div class="frame" id="frame-140478781569840">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/redis/connection.py"</cite>,
+      line <em class="line">940</em>,
+      in <code class="function">read_response</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;Read the response from a previously sent command&#34;&#34;&#34;</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">        </span>host_error = self._host_error()</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line current"><span class="ws">            </span>response = self._parser.read_response(disable_decoding=disable_decoding)</pre>
+<pre class="line after"><span class="ws">        </span>except socket.timeout:</pre>
+<pre class="line after"><span class="ws">            </span>self.disconnect()</pre>
+<pre class="line after"><span class="ws">            </span>raise TimeoutError(f&#34;Timeout reading from {host_error}&#34;)</pre>
+<pre class="line after"><span class="ws">        </span>except OSError as e:</pre>
+<pre class="line after"><span class="ws">            </span>self.disconnect()</pre></div>
+</div>
+
+<li><div class="frame" id="frame-140478781569952">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/redis/connection.py"</cite>,
+      line <em class="line">345</em>,
+      in <code class="function">read_response</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">        </span>return self._buffer and self._buffer.can_read(timeout)</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">    </span>def read_response(self, disable_decoding=False):</pre>
+<pre class="line before"><span class="ws">        </span>pos = self._buffer.get_pos() if self._buffer else None</pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line current"><span class="ws">            </span>result = self._read_response(disable_decoding=disable_decoding)</pre>
+<pre class="line after"><span class="ws">        </span>except BaseException:</pre>
+<pre class="line after"><span class="ws">            </span>if self._buffer:</pre>
+<pre class="line after"><span class="ws">                </span>self._buffer.rewind(pos)</pre>
+<pre class="line after"><span class="ws">            </span>raise</pre>
+<pre class="line after"><span class="ws">        </span>else:</pre></div>
+</div>
+
+<li><div class="frame" id="frame-140478781570176">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/redis/connection.py"</cite>,
+      line <em class="line">399</em>,
+      in <code class="function">_read_response</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">            </span>response = [</pre>
+<pre class="line before"><span class="ws">                </span>self._read_response(disable_decoding=disable_decoding)</pre>
+<pre class="line before"><span class="ws">                </span>for i in range(length)</pre>
+<pre class="line before"><span class="ws">            </span>]</pre>
+<pre class="line before"><span class="ws">        </span>if isinstance(response, bytes) and disable_decoding is False:</pre>
+<pre class="line current"><span class="ws">            </span>response = self.encoder.decode(response)</pre>
+<pre class="line after"><span class="ws">        </span>return response</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws"></span>class HiredisParser(BaseParser):</pre>
+<pre class="line after"><span class="ws">    </span>&#34;Parser class for connections using Hiredis&#34;</pre></div>
+</div>
+
+<li><div class="frame" id="frame-140478781570288">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/redis/connection.py"</cite>,
+      line <em class="line">128</em>,
+      in <code class="function">decode</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">        </span>&#34;Return a unicode string from the bytes-like representation&#34;</pre>
+<pre class="line before"><span class="ws">        </span>if self.decode_responses or force:</pre>
+<pre class="line before"><span class="ws">            </span>if isinstance(value, memoryview):</pre>
+<pre class="line before"><span class="ws">                </span>value = value.tobytes()</pre>
+<pre class="line before"><span class="ws">            </span>if isinstance(value, bytes):</pre>
+<pre class="line current"><span class="ws">                </span>value = value.decode(self.encoding, self.encoding_errors)</pre>
+<pre class="line after"><span class="ws">        </span>return value</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws"></span>class BaseParser:</pre>
+<pre class="line after"><span class="ws">    </span>EXCEPTION_CLASSES = {</pre></div>
+</div>
+</ul>
+  <blockquote>UnicodeDecodeError: &#39;utf-8&#39; codec can&#39;t decode byte 0x89 in position 0: invalid start byte
+</blockquote>
+</div>
+
+<div class="plain">
+    <p>
+      This is the Copy/Paste friendly version of the traceback.
+    </p>
+    <textarea cols="50" rows="10" name="code" readonly>Traceback (most recent call last):
+  File &#34;/usr/local/lib/python3.8/site-packages/flask/app.py&#34;, line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+  File &#34;/usr/local/lib/python3.8/site-packages/flask/app.py&#34;, line 2528, in wsgi_app
+    response = self.handle_exception(e)
+  File &#34;/usr/local/lib/python3.8/site-packages/flask/app.py&#34;, line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File &#34;/usr/local/lib/python3.8/site-packages/flask/app.py&#34;, line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File &#34;/usr/local/lib/python3.8/site-packages/flask/app.py&#34;, line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File &#34;/usr/local/lib/python3.8/site-packages/flask/app.py&#34;, line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File &#34;/gene_api.py&#34;, line 212, in get_image
+    rdi.get(&#39;image&#39;)
+  File &#34;/usr/local/lib/python3.8/site-packages/redis/commands/core.py&#34;, line 1790, in get
+    return self.execute_command(&#34;GET&#34;, name)
+  File &#34;/usr/local/lib/python3.8/site-packages/redis/client.py&#34;, line 1258, in execute_command
+    return conn.retry.call_with_retry(
+  File &#34;/usr/local/lib/python3.8/site-packages/redis/retry.py&#34;, line 46, in call_with_retry
+    return do()
+  File &#34;/usr/local/lib/python3.8/site-packages/redis/client.py&#34;, line 1259, in &lt;lambda&gt;
+    lambda: self._send_command_parse_response(
+  File &#34;/usr/local/lib/python3.8/site-packages/redis/client.py&#34;, line 1235, in _send_command_parse_response
+    return self.parse_response(conn, command_name, **options)
+  File &#34;/usr/local/lib/python3.8/site-packages/redis/client.py&#34;, line 1275, in parse_response
+    response = connection.read_response()
+  File &#34;/usr/local/lib/python3.8/site-packages/redis/connection.py&#34;, line 940, in read_response
+    response = self._parser.read_response(disable_decoding=disable_decoding)
+  File &#34;/usr/local/lib/python3.8/site-packages/redis/connection.py&#34;, line 345, in read_response
+    result = self._read_response(disable_decoding=disable_decoding)
+  File &#34;/usr/local/lib/python3.8/site-packages/redis/connection.py&#34;, line 399, in _read_response
+    response = self.encoder.decode(response)
+  File &#34;/usr/local/lib/python3.8/site-packages/redis/connection.py&#34;, line 128, in decode
+    value = value.decode(self.encoding, self.encoding_errors)
+UnicodeDecodeError: &#39;utf-8&#39; codec can&#39;t decode byte 0x89 in position 0: invalid start byte
+</textarea>
+</div>
+<div class="explanation">
+  The debugger caught an exception in your WSGI application.  You can now
+  look at the traceback which led to the error.  <span class="nojavascript">
+  If you enable JavaScript you can also use additional features such as code
+  execution (if the evalex feature is enabled), automatic pasting of the
+  exceptions and much more.</span>
+</div>
+      <div class="footer">
+        Brought to you by <strong class="arthur">DON'T PANIC</strong>, your
+        friendly Werkzeug powered traceback interpreter.
+      </div>
+    </div>
+
+    <div class="pin-prompt">
+      <div class="inner">
+        <h3>Console Locked</h3>
+        <p>
+          The console is locked and needs to be unlocked by entering the PIN.
+          You can find the PIN printed out on the standard output of your
+          shell that runs the server.
+        <form>
+          <p>PIN:
+            <input type=text name=pin size=14>
+            <input type=submit name=btn value="Confirm Pin">
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!--
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/gene_api.py", line 212, in get_image
+    rdi.get('image')
+  File "/usr/local/lib/python3.8/site-packages/redis/commands/core.py", line 1790, in get
+    return self.execute_command("GET", name)
+  File "/usr/local/lib/python3.8/site-packages/redis/client.py", line 1258, in execute_command
+    return conn.retry.call_with_retry(
+  File "/usr/local/lib/python3.8/site-packages/redis/retry.py", line 46, in call_with_retry
+    return do()
+  File "/usr/local/lib/python3.8/site-packages/redis/client.py", line 1259, in <lambda>
+    lambda: self._send_command_parse_response(
+  File "/usr/local/lib/python3.8/site-packages/redis/client.py", line 1235, in _send_command_parse_response
+    return self.parse_response(conn, command_name, **options)
+  File "/usr/local/lib/python3.8/site-packages/redis/client.py", line 1275, in parse_response
+    response = connection.read_response()
+  File "/usr/local/lib/python3.8/site-packages/redis/connection.py", line 940, in read_response
+    response = self._parser.read_response(disable_decoding=disable_decoding)
+  File "/usr/local/lib/python3.8/site-packages/redis/connection.py", line 345, in read_response
+    result = self._read_response(disable_decoding=disable_decoding)
+  File "/usr/local/lib/python3.8/site-packages/redis/connection.py", line 399, in _read_response
+    response = self.encoder.decode(response)
+  File "/usr/local/lib/python3.8/site-packages/redis/connection.py", line 128, in decode
+    value = value.decode(self.encoding, self.encoding_errors)
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0x89 in position 0: invalid start byte
+
+
+-->
