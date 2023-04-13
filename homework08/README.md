@@ -190,7 +190,7 @@ root@py-debug-deployment-f484b4b99-tprrp:/# curl jo25672-test-geneapi-service:50
 ## Creating Your Own Image for K8:
 To build a new image from the **Dockerfile** present in this directory, run this command:
 ```
-$ docker build -t <dockerhubusername>/gene_api:k8 .
+$ docker build -t <dockerhubusername>/gene_api:hw8 .
 ```
 > **IMPORTANT: Make sure to be in the same directory as the ``Dockerfile`` and DO NOT FORGET THE "." at the very end of this command!!!**
 
@@ -215,7 +215,7 @@ Step 6/6 : CMD ["python", "gene_api.py"]
 Removing intermediate container b7b7f007b29f
  ---> 2a2936689823
 Successfully built 2a2936689823
-Successfully tagged jaeestee/gene_api:k8
+Successfully tagged jaeestee/gene_api:hw8
 ```
 Now you have successfully created your own image!
 
@@ -223,7 +223,7 @@ Now you have successfully created your own image!
 ## Pushing the New Image for K8:
 Now that your own image was created, it must be pushed for the Kubernetes Cluster to function properly. To do so, use this command:
 ```bash
-$ docker push <dockerhubusername>/gene_api:k8
+$ docker push <dockerhubusername>/gene_api:hw8
 ```
 
 If done properly, the output should look similar to this:
@@ -242,7 +242,7 @@ cdc9dae211b4: Layer already exists
 fe6a4fdbedc0: Layer already exists
 e4d0e810d54a: Layer already exists
 4e006334a6fd: Layer already exists
-k8: digest: sha256:a722680b5e6dff7fac131dc8128bc1563700e88c67d7c617745ed227b2f066a1 size: 3057
+hw8: digest: sha256:a722680b5e6dff7fac131dc8128bc1563700e88c67d7c617745ed227b2f066a1 size: 3057
 ```
 
 > Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
@@ -278,22 +278,29 @@ spec:
       containers:
         - name: jo25672-test-geneapi
           imagePullPolicy: Always
-          image: jaeestee/gene_api:k8
+          image: jaeestee/gene_api:hw8
           env:
           - name: FLASK_APP
             value: "gene_api.py"
+          - name: REDIS_IP
+            value: jo25672-test-redis-service
           ports:
           - name: http
             containerPort: 5000
 ```
 
-Now, go all the way to the bottom where it says "image: jaeestee/gene_api:k8" and make sure that the ```jaeestee``` is switched with your own dockerhub username.
+Now, go all the way to the bottom where it says "image: jaeestee/gene_api:hw8" and make sure that the ```jaeestee``` is switched with your own dockerhub username.
 To save the file in ```emacs```, press ```Ctrl+X``` and then ```Ctrl+C```, where it will prompt you to save. Simply press ```y``` on the keyboard.
 
 You have now completed making your own image for the K8 cluster!
 
 > Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
 # Queries To Use:
+
+|Route|Method|What it should do|
+|---|---|---|
+|test|test|test|
+
 ## To load the data, run this command:
 ```bash
 $ curl localhost:5000/data -X POST
