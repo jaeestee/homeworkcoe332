@@ -6,7 +6,7 @@
   - [Building a New Image](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#building-a-new-image)
 - [Kubernetes Cluster](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#kubernetes-cluster)
   - [Setting Up the Cluster](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#setting-up-the-cluster)
-  - [Testing the Cluster]https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#setting-up-the-cluster)
+  - [Testing the Cluster](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#setting-up-the-cluster)
   - [Creating Your Own Image for K8](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#creating-your-own-image-for-k8)
   - [Pushing the New Image for K8](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#pushing-the-new-image-for-k8)
   - [Editing a File for K8](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#editing-a-file-for-k8)
