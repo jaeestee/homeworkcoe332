@@ -1,7 +1,7 @@
 # Navigation:
-- [The Data in the Genes + Kubernetes](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#the-data-in-the-genes--kubernetes)
-- [Image Handling](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#image-handling)
-  - [Pulling the Image](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#running-the-image)
+- [The Data in the Genes + Kubernetes](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#the-data-in-the-genes--kubernetes--images)
+- [Image Handling](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#image-handling)
+  - [Pulling the Image](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#pulling-the-image-jaeesteegene_apihw8-from-docker-hub)
   - [Running the Image](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#running-the-image)
   - [Building a New Image](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#building-a-new-image)
 - [Kubernetes Cluster](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#kubernetes-cluster)
