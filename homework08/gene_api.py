@@ -151,21 +151,39 @@ def post_image():
     except KeyError:
         return 'The data does not exist...\n'
 
-    #initializing the x-axis data points
+    n = range(len(genesDict))
+    
+    #initializing the x and y data points
     x = []
+    y = []
     
     #sorts through the list to match the gene ID and returns the data for it
-    for i in range(len(genesDict)):
-        hgnc = genesDict[i]['hgnc_id']
-        x.append((int)hgnc[5:])
-    
+    for i in n:
+        hgncId = genesDict[i]['hgnc_id']
+        #since not every single gene has this entrez id, it skips those
+        try:
+            entrezId = genesDict[i]['entrez_id']
+        except KeyError:
+            continue
+        y.append((int)(hgncId[5:]))
+        x.append((int)(entrezId))
+
+    #creating the scatter plot
+    plt.scatter(x,y)
+    plt.legend()
+    plt.xlabel('entrez ID')
+    plt.ylabel('HGNC ID')
+    plt.title('entrez vs HGNC')
+    plt.savefig('image.png')
+
     #stores the image into the rdi client
-    rdi.set('image', x)
+    file_bytes = open('./image.png', 'rb').read()
+    rdi.set('image', file_bytes)
 
     #the success message
     message = 'Successfully posted the image!\n'
 
-    return x
+    return message
     
 @app.route('/image', methods=['DELETE'])
 def delete_image():
@@ -196,7 +214,11 @@ def get_image():
         return 'The data does not exist...\n'
     except TypeError:
         return 'The data does not exist...\n'
+
+    with open('./image.png', 'wb') as f:
+        f.write(rdi.get('image'))
     
+    return send_file('./image.png', mimetype='image/png', as_attachment=True)
     
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
