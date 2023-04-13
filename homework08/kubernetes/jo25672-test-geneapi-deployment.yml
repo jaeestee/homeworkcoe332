@@ -22,7 +22,7 @@ spec:
       containers:
         - name: jo25672-test-geneapi
           imagePullPolicy: Always
-          image: jaeestee/gene_api:k8
+          image: jaeestee/gene_api:hw8
           env:
           - name: FLASK_APP
             value: "gene_api.py"
