@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, send_file
 import requests, redis, json
 import os
 import matplotlib.pyplot as plt
@@ -130,7 +130,7 @@ def specific_gene_data(geneID: str) -> dict:
     #if it doesn't find it, returns this prompt
     return 'Could not find the gene data for the given ID.\n'
 
-rdi = redis.Redis(host=redis_ip, port=6379, db=1, decode_responses=True)
+rdi = redis.Redis(host=redis_ip, port=6379, db=1, decode_responses=False)
 
 @app.route('/image', methods=['POST'])
 def post_image():
@@ -165,8 +165,8 @@ def post_image():
             entrezId = genesDict[i]['entrez_id']
         except KeyError:
             continue
-        y.append((int)(hgncId[5:]))
-        x.append((int)(entrezId))
+        x.append((int)(hgncId[5:]))
+        y.append((int)(entrezId))
 
     #creating the scatter plot
     plt.scatter(x,y)
