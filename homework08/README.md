@@ -41,8 +41,9 @@ This homework contains the script ``gene_api.py``. This script is a flask and re
 - These yml files are used for the Kubernetes Cluster and is used to run the redis portion of the cluster.
 > This helps save the data of the api indefinitely, even if the pods are destroyed.
 
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
+
 # Image Handling
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
 ## Pulling the image ```jaeestee/gene_api:hw8``` from Docker Hub:
 To pull the existing image, run this command:
 ```bash
@@ -58,8 +59,9 @@ $ docker images
 > jaeestee/gene_api      hw8       d8376d24fa21   1 hours ago     887MB
 > ```
 
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
+
 ## Running the image:
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
 To start running the containerized Flask app, run this command:
 ```bash
 $ docker-compose up -d
@@ -102,8 +104,9 @@ Removing homework06_redis-db_1  ... done
 Removing network homework06_default
 ```
 
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
+
 ## Building a New Image:
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
 To build a new image from the **Dockerfile** present in this directory, run this command:
 ```
 $ docker build -t <dockerhubusername>/gene_api:<version> .
@@ -135,8 +138,9 @@ Successfully tagged jaeestee/gene_api:latest
 ```
 Now you have successfully created your own image!
 
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
+
 # Kubernetes Cluster:
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
 ## Setting Up The Cluster:
 To set up the cluster, first run these commands:
 ```bash
@@ -166,8 +170,9 @@ py-debug-deployment-f484b4b99-tprrp     1/1     Running   0          17m
 
 Now everything is set up!
 
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
+
 ## Testing the Kubernetes Cluster:
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
 To test the cluster and make sure the flask api is functioning properly, use this command to enter the python pod:
 ```bash
 $ kubectl exec -it <py-debug-deployment pod name> -- /bin/bash
@@ -189,8 +194,9 @@ For example:
 root@py-debug-deployment-f484b4b99-tprrp:/# curl jo25672-test-geneapi-service:5000/genes
 ```
 
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
+
 ## Creating Your Own Image for K8:
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
 To build a new image from the **Dockerfile** present in this directory, run this command:
 ```
 $ docker build -t <dockerhubusername>/gene_api:hw8 .
@@ -222,8 +228,9 @@ Successfully tagged jaeestee/gene_api:hw8
 ```
 Now you have successfully created your own image!
 
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
+
 ## Pushing the New Image for K8:
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
 Now that your own image was created, it must be pushed for the Kubernetes Cluster to function properly. To do so, use this command:
 ```bash
 $ docker push <dockerhubusername>/gene_api:hw8
@@ -248,8 +255,9 @@ e4d0e810d54a: Layer already exists
 hw8: digest: sha256:a722680b5e6dff7fac131dc8128bc1563700e88c67d7c617745ed227b2f066a1 size: 3057
 ```
 
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
+
 ## Editing a File for K8:
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
 Since you have your own image now, you need to edit the ```jo25672-test-geneapi-deployment.yml``` file. To do this, enter into any text editing command like this:
 ```bash
 $ emacs jo25672-test-geneapi-deployment.yml
@@ -297,9 +305,9 @@ To save the file in ```emacs```, press ```Ctrl+X``` and then ```Ctrl+C```, where
 
 You have now completed making your own image for the K8 cluster!
 
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
-# Queries To Use:
 
+# Queries To Use:
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
 |Route|Method|What it should do|Easy Navigation|
 |---|---|---|---|
 |``/data``|POST|Loads in the data|[Click Me](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#to-load-the-data-run-this-command)|
@@ -320,8 +328,9 @@ If done properly, the output should look like this:
 Successfully reloaded the dictionary with the data from the web!
 ```
 
-> Back to [Queries to Use](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#queries-to-use)
+
 ## To delete the data, run this command:
+> Back to [Queries to Use](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#queries-to-use)
 ```bash
 $ curl localhost:5000/data -X DELETE
 ```
@@ -330,8 +339,9 @@ If done properly, the output should look like this:
 Successfully deleted all the data from the dictionary!
 ```
 
-> Back to [Queries to Use](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#queries-to-use)
+
 ## To print the entire data set (whether it exists or not), run this command:
+> Back to [Queries to Use](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#queries-to-use)
 ```bash
 $ curl localhost:5000/data
 ```
@@ -358,8 +368,9 @@ The data does not exist...
 ```
 > This means that the POST method has not been called or that the DELETE method was called.
 
-> Back to [Queries to Use](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#queries-to-use)
+
 ## To print out a list of all gene IDs in the data set, run this command:
+> Back to [Queries to Use](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#queries-to-use)
 ```bash
 $ curl localhost:5000/genes
 ```
@@ -381,8 +392,9 @@ If done properly, the end of the output should look similar to this:
 ```
 > An error message will appear if the data is empty or doesn't exist yet. Additionally, there should be a lot more data points, this is just a shortened version.
 
-> Back to [Queries to Use](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#queries-to-use)
+
 ## To print specific data on a gene, run this command:
+> Back to [Queries to Use](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#queries-to-use)
 ```bash
 $ curl localhost:5000/genes/<geneID>
 ```
@@ -430,8 +442,9 @@ If done properly, the output should look similar to this:
 ```
 > A message will appear if the data is empty or doesn't exist yet. Note: This is a shortened version of the data that should be printed.
 
-> Back to [Queries to Use](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#queries-to-use)
+
 ## To post the image, run this command:
+> Back to [Queries to Use](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#queries-to-use)
 ```bash
 $ curl localhost:5000/image -X POST
 ```
@@ -446,8 +459,9 @@ If there wasn't any data, the output should be this:
 The data does not exist...
 ```
 
-> Back to [Queries to Use](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#queries-to-use)
+
 ## To delete the image, run this command:
+> Back to [Queries to Use](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#queries-to-use)
 ```bash
 $ curl localhost:5000/image -X DELETE
 ```
@@ -457,8 +471,9 @@ If done properly, the output should be this:
 Successfully deleted all the data from the dictionary!
 ```
 
-> Back to [Queries to Use](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#queries-to-use)
+
 ## To get the image, run this command:
+> Back to [Queries to Use](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#queries-to-use)
 ```bash
 $ curl --output image.png localhost:5000/image
 ```
@@ -489,10 +504,10 @@ If there isn't any data, this will be the output:
 The data does not exist...
 ```
 
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
+
 # Describing the Gene Data:
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
 This gene data was provided by the HUGO Gene Nomenclature Committee. This committee is a part of the Human Genome Organization (HUGO) and oversees the approval of every gene name. Therefore, HGNC assigns every gene an HGNC ID, a gene symbol, an approved name, and many more (for more details, check out the website below).
 > From the [HGNC Complete Set Archive](https://www.genenames.org/download/archive/)
 
 In this application, the data was pulled from this specific url, [Current JSON format hgnc_complete_set file](https://ftp.ebi.ac.uk/pub/databases/genenames/hgnc/json/hgnc_complete_set.json), which is located at the very bottom of their website.
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#navigation)
