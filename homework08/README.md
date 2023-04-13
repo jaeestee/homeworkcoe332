@@ -297,9 +297,16 @@ You have now completed making your own image for the K8 cluster!
 > Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
 # Queries To Use:
 
-|Route|Method|What it should do|
-|---|---|---|
-|test|test|test|
+|Route|Method|What it should do|Easy Navigation|
+|---|---|---|---|
+|``/data``|POST|Loads in the data||
+|``/data``|DELETE|Deletes the data||
+|``/data``|GET|Prints the data||
+|``/genes``|GET|Prints the gene IDs||
+|``/genes/<hgnc_id>``|GET|Prints a specific gene||
+|``/image``|POST|Posts the image||
+|``/image``|DELETE|Deletes the image||
+|``/image``|GET|Gets the image||
 
 ## To load the data, run this command:
 ```bash
