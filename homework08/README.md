@@ -308,6 +308,7 @@ You have now completed making your own image for the K8 cluster!
 
 # Queries To Use:
 > Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
+
 |Route|Method|What it should do|Easy Navigation|
 |---|---|---|---|
 |``/data``|POST|Loads in the data|[Click Me](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#to-load-the-data-run-this-command)|
