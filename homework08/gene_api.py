@@ -171,9 +171,9 @@ def post_image():
     #creating the scatter plot
     plt.scatter(x,y)
     plt.legend()
-    plt.xlabel('entrez ID')
-    plt.ylabel('HGNC ID')
-    plt.title('entrez vs HGNC')
+    plt.xlabel('HGNC ID')
+    plt.ylabel('Entrez ID')
+    plt.title('HGNC vs Entrez')
     plt.savefig('./image.png')
 
     #stores the image into the rdi client
