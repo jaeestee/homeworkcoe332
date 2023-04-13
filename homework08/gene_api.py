@@ -1,6 +1,7 @@
 from flask import Flask, request
 import requests, redis, json
 import os
+import matplotlib.pyplot as plt
 
 redis_ip = os.environ.get('REDIS_IP')
 if not redis_ip:
@@ -129,5 +130,73 @@ def specific_gene_data(geneID: str) -> dict:
     #if it doesn't find it, returns this prompt
     return 'Could not find the gene data for the given ID.\n'
 
+rdi = redis.Redis(host=redis_ip, port=6379, db=1, decode_responses=True)
+
+@app.route('/image', methods=['POST'])
+def post_image():
+    """
+    This function creates the image using the data, if present, and stores it into the rdi client.
+
+    Returns:
+        message (str): Message saying that the image was successfully posted.
+    """
+
+    #try-except block to make sure the data has information
+    try:
+        genesDict = data()['response']['docs']
+    except TypeError:
+        return 'The data does not exist...\n'
+    except NameError:
+        return 'The data does not exist...\n'
+    except KeyError:
+        return 'The data does not exist...\n'
+
+    #initializing the x-axis data points
+    x = []
+    
+    #sorts through the list to match the gene ID and returns the data for it
+    for i in range(len(genesDict)):
+        hgnc = genesDict[i]['hgnc_id']
+        x.append((int)hgnc[5:])
+    
+    #stores the image into the rdi client
+    rdi.set('image', x)
+
+    #the success message
+    message = 'Successfully posted the image!\n'
+
+    return x
+    
+@app.route('/image', methods=['DELETE'])
+def delete_image():
+    """
+    This function removes the image from the database.
+
+    Returns:
+        message (str): Message saying that the data was deleted.
+    """
+
+    #deletes all data from the rdi client
+    rdi.flushdb()
+
+    message = 'Successfully deleted the image!\n'
+    return message
+    
+@app.route('/image', methods=['GET'])
+def get_image():
+    """
+    This function returns the image, if it exists, from the rdi client.
+
+    Returns:
+    
+    """
+    try:
+        rdi.get('image')
+    except NameError:
+        return 'The data does not exist...\n'
+    except TypeError:
+        return 'The data does not exist...\n'
+    
+    
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
