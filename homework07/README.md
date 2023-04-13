@@ -40,12 +40,12 @@ This homework contains the script ``gene_api.py``. This script is a flask and re
 
 > Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#navigation)
 # Image Handling
-## Pulling the image ```jaeestee/gene_api``` from Docker Hub:
+## Pulling the image ```jaeestee/gene_api:k8``` from Docker Hub:
 To pull the existing image, run this command:
 ```bash
-$ docker pull jaeestee/gene_api
+$ docker pull jaeestee/gene_api:k8
 ```
-If done properly, ``jaeestee/gene_api`` should show up with the tag ``latest`` when running this command:
+If done properly, ``jaeestee/gene_api:k8`` should show up with the tag ``latest`` when running this command:
 ```bash
 $ docker images
 ```
