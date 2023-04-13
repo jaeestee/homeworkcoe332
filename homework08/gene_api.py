@@ -1,9 +1,14 @@
 from flask import Flask, request
 import requests, redis, json
+import os
+
+redis_ip = os.environ.get('REDIS_IP')
+if not redis_ip:
+    raise Exception()
 
 app = Flask(__name__)
 
-rd = redis.Redis(host='jo25672-test-redis-service', port=6379, db=0, decode_responses=True)
+rd = redis.Redis(host=redis_ip, port=6379, db=0, decode_responses=True)
 
 @app.route('/data', methods=['DELETE'])
 def delete_data() -> str:
