@@ -43,8 +43,8 @@ This homework contains the script ``gene_api.py``. This script is a flask and re
 
 
 # Image Handling
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
 ## Pulling the image ```jaeestee/gene_api:hw8``` from Docker Hub:
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
 To pull the existing image, run this command:
 ```bash
 $ docker pull jaeestee/gene_api:hw8
@@ -140,8 +140,8 @@ Now you have successfully created your own image!
 
 
 # Kubernetes Cluster:
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
 ## Setting Up The Cluster:
+> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
 To set up the cluster, first run these commands:
 ```bash
 $ kubectl apply -f jo25672-test-geneapi-deployment.yml
