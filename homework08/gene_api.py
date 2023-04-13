@@ -201,7 +201,7 @@ def delete_image() -> str:
     return message
     
 @app.route('/image', methods=['GET'])
-def get_image() -> file:
+def get_image():
     """
     This function returns the image, if it exists, from the rdi client.
 
@@ -209,14 +209,12 @@ def get_image() -> file:
         file (.png): The image.png with the scatter plot.
     """
     try:
-        rdi.get('image')
+        with open('./image.png', 'wb') as f:
+            f.write(rdi.get('image'))
     except NameError:
         return 'The data does not exist...\n'
     except TypeError:
         return 'The data does not exist...\n'
-
-    with open('./image.png', 'wb') as f:
-        f.write(rdi.get('image'))
     
     return send_file('./image.png', mimetype='image/png', as_attachment=True)
     
