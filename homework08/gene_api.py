@@ -133,7 +133,7 @@ def specific_gene_data(geneID: str) -> dict:
 rdi = redis.Redis(host=redis_ip, port=6379, db=1, decode_responses=False)
 
 @app.route('/image', methods=['POST'])
-def post_image():
+def post_image() -> str:
     """
     This function creates the image using the data, if present, and stores it into the rdi client.
 
@@ -186,7 +186,7 @@ def post_image():
     return message
     
 @app.route('/image', methods=['DELETE'])
-def delete_image():
+def delete_image() -> str:
     """
     This function removes the image from the database.
 
@@ -201,12 +201,12 @@ def delete_image():
     return message
     
 @app.route('/image', methods=['GET'])
-def get_image():
+def get_image() -> file:
     """
     This function returns the image, if it exists, from the rdi client.
 
     Returns:
-    
+        file (.png): The image.png with the scatter plot.
     """
     try:
         rdi.get('image')
