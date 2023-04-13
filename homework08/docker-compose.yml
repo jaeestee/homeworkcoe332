@@ -15,10 +15,10 @@ services:
             dockerfile: ./Dockerfile
         depends_on:
             - redis-db
-        image: jaeestee/gene_api
+        image: jaeestee/gene_api:hw8
         ports:
             - 5000:5000
         volumes:
             - ./config.yaml:/config.yaml
         environment:
-            - REDIS_IP: jo25672-test-redis-service
+            - REDIS_IP=redis-db
