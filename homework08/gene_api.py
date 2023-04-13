@@ -174,7 +174,7 @@ def post_image():
     plt.xlabel('entrez ID')
     plt.ylabel('HGNC ID')
     plt.title('entrez vs HGNC')
-    plt.savefig('image.png')
+    plt.savefig('./image.png')
 
     #stores the image into the rdi client
     file_bytes = open('./image.png', 'rb').read()
