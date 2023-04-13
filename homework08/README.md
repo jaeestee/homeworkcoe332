@@ -2,21 +2,24 @@
 - [The Data in the Genes + Kubernetes](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#the-data-in-the-genes--kubernetes--images)
 - [Image Handling](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#image-handling)
   - [Pulling the Image](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#pulling-the-image-jaeesteegene_apihw8-from-docker-hub)
-  - [Running the Image](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#running-the-image)
-  - [Building a New Image](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#building-a-new-image)
-- [Kubernetes Cluster](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#kubernetes-cluster)
-  - [Setting Up the Cluster](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#setting-up-the-cluster)
-  - [Testing the Cluster](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#testing-the-kubernetes-cluster)
-  - [Creating Your Own Image for K8](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#creating-your-own-image-for-k8)
-  - [Pushing the New Image for K8](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#pushing-the-new-image-for-k8)
-  - [Editing a File for K8](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#editing-a-file-for-k8)
-- [Queries to Use](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#queries-to-use)
-  - [Load the Data](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#to-load-the-data-run-this-command)
-  - [Delete the Data](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#to-delete-the-data-run-this-command)
-  - [Print the Entire Data](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#to-print-the-entire-data-set-whether-it-exists-or-is-empty-run-this-command)
-  - [Print List of Gene IDs](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#to-print-out-a-list-of-all-gene-ids-in-the-data-set-run-this-command)
-  - [Print a Specific Gene](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#to-print-specific-data-on-a-gene-run-this-command)
-- [Describing the Gene Data](https://github.com/jaeestee/homeworkcoe332/blob/main/homework07/README.md#describing-the-gene-data)
+  - [Running the Image](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#running-the-image)
+  - [Building a New Image](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#building-a-new-image)
+- [Kubernetes Cluster](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#kubernetes-cluster)
+  - [Setting Up the Cluster](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#setting-up-the-cluster)
+  - [Testing the Cluster]https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#setting-up-the-cluster)
+  - [Creating Your Own Image for K8](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#creating-your-own-image-for-k8)
+  - [Pushing the New Image for K8](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#pushing-the-new-image-for-k8)
+  - [Editing a File for K8](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#editing-a-file-for-k8)
+- [Queries to Use](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#queries-to-use)
+  - [Load the Data](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#to-load-the-data-run-this-command)
+  - [Delete the Data](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#to-delete-the-data-run-this-command)
+  - [Print the Entire Data](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#to-print-the-entire-data-set-whether-it-exists-or-not-run-this-command)
+  - [Print List of Gene IDs](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#to-print-out-a-list-of-all-gene-ids-in-the-data-set-run-this-command)
+  - [Print a Specific Gene](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#to-print-specific-data-on-a-gene-run-this-command)
+  - [Post the Image](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#to-post-the-image-run-this-command)
+  - [Delete the Image](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#to-delete-the-image-run-this-command)
+  - [Get the Image](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#to-get-the-image-run-this-command)
+- [Describing the Gene Data](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#describing-the-gene-data)
   
 # The Data in the Genes + Kubernetes + Images
 This homework contains the script ``gene_api.py``. This script is a flask and redis application that is used to return data from the Human Genome Organization (HUGO). It also includes sections on how to run the application through the Kubernetes Cluster (K8). The data returned is explained in the sections below.
@@ -299,14 +302,14 @@ You have now completed making your own image for the K8 cluster!
 
 |Route|Method|What it should do|Easy Navigation|
 |---|---|---|---|
-|``/data``|POST|Loads in the data||
-|``/data``|DELETE|Deletes the data||
-|``/data``|GET|Prints the data||
-|``/genes``|GET|Prints the gene IDs||
-|``/genes/<hgnc_id>``|GET|Prints a specific gene||
-|``/image``|POST|Posts the image||
-|``/image``|DELETE|Deletes the image||
-|``/image``|GET|Gets the image||
+|``/data``|POST|Loads in the data|[Click Me](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#to-load-the-data-run-this-command)|
+|``/data``|DELETE|Deletes the data|[Click Me](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#to-delete-the-data-run-this-command)|
+|``/data``|GET|Prints the data|[Click Me](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#to-print-the-entire-data-set-whether-it-exists-or-not-run-this-command)|
+|``/genes``|GET|Prints the gene IDs|[Click Me](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#to-print-out-a-list-of-all-gene-ids-in-the-data-set-run-this-command)|
+|``/genes/<hgnc_id>``|GET|Prints a specific gene|[Click Me](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#to-print-specific-data-on-a-gene-run-this-command)|
+|``/image``|POST|Posts the image|[Click Me](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#to-post-the-image-run-this-command)|
+|``/image``|DELETE|Deletes the image|[Click Me](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#to-delete-the-image-run-this-command)|
+|``/image``|GET|Gets the image|[Click Me](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#to-get-the-image-run-this-command)|
 
 ## To load the data, run this command:
 ```bash
@@ -317,7 +320,7 @@ If done properly, the output should look like this:
 Successfully reloaded the dictionary with the data from the web!
 ```
 
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
+> Back to [Queries to Use](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#queries-to-use)
 ## To delete the data, run this command:
 ```bash
 $ curl localhost:5000/data -X DELETE
@@ -327,7 +330,7 @@ If done properly, the output should look like this:
 Successfully deleted all the data from the dictionary!
 ```
 
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
+> Back to [Queries to Use](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#queries-to-use)
 ## To print the entire data set (whether it exists or not), run this command:
 ```bash
 $ curl localhost:5000/data
@@ -355,7 +358,7 @@ The data does not exist...
 ```
 > This means that the POST method has not been called or that the DELETE method was called.
 
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
+> Back to [Queries to Use](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#queries-to-use)
 ## To print out a list of all gene IDs in the data set, run this command:
 ```bash
 $ curl localhost:5000/genes
@@ -378,7 +381,7 @@ If done properly, the end of the output should look similar to this:
 ```
 > An error message will appear if the data is empty or doesn't exist yet. Additionally, there should be a lot more data points, this is just a shortened version.
 
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
+> Back to [Queries to Use](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#queries-to-use)
 ## To print specific data on a gene, run this command:
 ```bash
 $ curl localhost:5000/genes/<geneID>
@@ -427,7 +430,7 @@ If done properly, the output should look similar to this:
 ```
 > A message will appear if the data is empty or doesn't exist yet. Note: This is a shortened version of the data that should be printed.
 
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
+> Back to [Queries to Use](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#queries-to-use)
 ## To post the image, run this command:
 ```bash
 $ curl localhost:5000/image -X POST
@@ -443,7 +446,7 @@ If there wasn't any data, the output should be this:
 The data does not exist...
 ```
 
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
+> Back to [Queries to Use](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#queries-to-use)
 ## To delete the image, run this command:
 ```bash
 $ curl localhost:5000/image -X DELETE
@@ -454,7 +457,7 @@ If done properly, the output should be this:
 Successfully deleted all the data from the dictionary!
 ```
 
-> Back up to [Navigation](https://github.com/jaeestee/homeworkcoe332/blob/main/homework08/README.md#navigation)
+> Back to [Queries to Use](https://github.com/jaeestee/homeworkcoe332/tree/main/homework08#queries-to-use)
 ## To get the image, run this command:
 ```bash
 $ curl --output image.png localhost:5000/image
